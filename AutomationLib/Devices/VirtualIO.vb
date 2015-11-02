@@ -36,9 +36,13 @@
         val = 1 << input
 
         If value = True Then
-            _inputs = _inputs + val
+            If GetInput(input) = False Then
+                _inputs = _inputs + val
+            End If
         Else
-            _inputs = _inputs - val
+            If GetInput(input) = True Then
+                _inputs = _inputs - val
+            End If
         End If
 
     End Sub
@@ -56,12 +60,16 @@
 
         Dim val As UInteger
         val = 1 << output
-        _outputs = _outputs Or val
 
         If value = True Then
-            _outputs = _outputs + val
+            If GetOutput(output) = False Then
+                _outputs = _outputs + val
+            End If
+
         Else
-            _outputs = _outputs - val
+            If GetOutput(output) = True Then
+                _outputs = _outputs + val
+            End If
         End If
     End Sub
     Public Function GetOutput(output As UShort) As Boolean Implements IDiscretePort.GetOutput

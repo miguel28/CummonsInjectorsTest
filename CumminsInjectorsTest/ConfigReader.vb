@@ -15,6 +15,10 @@ Public Class ConfigReader
     ' Outpus Configurations
     Public OUTRetractPiston As Short
     Public OUTExtendPiston As Short
+
+    Public CHNDistance As Short
+    Public DistanceScale As Double
+
     Public Sub New()
         ' Loads Default Configuration
         UseEmulator = True
@@ -28,6 +32,10 @@ Public Class ConfigReader
 
         OUTRetractPiston = 0
         OUTExtendPiston = 1
+
+        CHNDistance = 0
+
+        DistanceScale = 1 / (UShort.MaxValue / 100)
     End Sub
 
     Public Shared Function LoadConfg() As ConfigReader
@@ -38,7 +46,7 @@ Public Class ConfigReader
 
     Public Sub SaveConfig()
         Dim str As String
-        str = JsonConvert.SerializeObject(Me)
+        str = JsonConvert.SerializeObject(Me, Formatting.Indented)
         File.WriteAllText("config.ini", str)
     End Sub
 

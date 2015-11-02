@@ -17,7 +17,7 @@
             Inputs = _inputs
         End Get
         Set(value As UInteger)
-
+            _inputs = value
         End Set
     End Property
 
@@ -33,8 +33,18 @@
         If input >= maxInputs Then Exit Sub
 
         Dim val As UInteger
-        val = value << input
-        _inputs = _inputs Or val
+        val = 1 << input
+
+        If value = True Then
+            If GetInput(input) = False Then
+                _inputs = _inputs + val
+            End If
+        Else
+            If GetInput(input) = True Then
+                _inputs = _inputs - val
+            End If
+        End If
+
     End Sub
     Public Function GetInput(input As UShort) As Boolean Implements IDiscretePort.GetInput
         GetInput = False
@@ -49,9 +59,18 @@
         If output >= maxOutputs Then Exit Sub
 
         Dim val As UInteger
-        val = value << output
-        _outputs = _outputs Or val
+        val = 1 << output
 
+        If value = True Then
+            If GetOutput(output) = False Then
+                _outputs = _outputs + val
+            End If
+
+        Else
+            If GetOutput(output) = True Then
+                _outputs = _outputs + val
+            End If
+        End If
     End Sub
     Public Function GetOutput(output As UShort) As Boolean Implements IDiscretePort.GetOutput
         GetOutput = False
