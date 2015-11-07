@@ -51,12 +51,11 @@
     </Reference>
     <Reference Include="NationalInstruments.Common, Version=15.0.40.49154, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\NationalInstruments.Common\NationalInstruments.Common\X86\9.0.35.362\NationalInstruments.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\Automatizacion\NI\Libs\NationalInstruments.Common\NationalInstruments.Common\X86\9.0.35.362\NationalInstruments.Common.dll</HintPath>
     </Reference>
     <Reference Include="NationalInstruments.DAQmx">
-      <HintPath>..\..\..\..\..\Desktop\NationalInstruments.DAQmx\NationalInstruments.DAQmx\X64\9.2.35.82\NationalInstruments.DAQmx.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\Automatizacion\NI\Libs\NationalInstruments.DAQmx\NationalInstruments.DAQmx\X64\9.2.35.82\NationalInstruments.DAQmx.dll</HintPath>
     </Reference>
-    <Reference Include="NationalInstruments.Visa, Version=15.0.0.49152, Culture=neutral, PublicKeyToken=2eaa5af0834e221d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

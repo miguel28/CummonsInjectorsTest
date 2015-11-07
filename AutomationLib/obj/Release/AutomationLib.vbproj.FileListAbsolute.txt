@@ -1,0 +1,11 @@
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\bin\Release\AutomationLib.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\bin\Release\AutomationLib.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\bin\Release\AutomationLib.xml
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\bin\Release\NationalInstruments.Common.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\bin\Release\NationalInstruments.DAQmx.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Release\AutomationLib.frmIOEmulator.resources
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Release\AutomationLib.Resources.resources
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Release\AutomationLib.vbproj.GenerateResource.Cache
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Release\AutomationLib.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Release\AutomationLib.xml
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Release\AutomationLib.pdb

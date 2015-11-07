@@ -65,10 +65,9 @@
             If GetOutput(output) = False Then
                 _outputs = _outputs + val
             End If
-
         Else
             If GetOutput(output) = True Then
-                _outputs = _outputs + val
+                _outputs = _outputs - val
             End If
         End If
     End Sub

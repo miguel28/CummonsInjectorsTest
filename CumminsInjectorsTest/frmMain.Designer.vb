@@ -32,18 +32,18 @@ Partial Class frmMain
         Me.chartDistance = New HMIControls.RealTimeChart()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.chartCurrent = New HMIControls.RealTimeChart()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblMessage = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.chartCurrent = New HMIControls.RealTimeChart()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lblPartNumber = New System.Windows.Forms.Label()
         Me.txtPartNumber = New System.Windows.Forms.TextBox()
+        Me.lblPartNumber = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -114,6 +114,31 @@ Partial Class frmMain
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(761, 94)
         Me.TableLayoutPanel2.TabIndex = 1
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.CumminsInjectorsTest.My.Resources.Resources.cummins
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(94, 88)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
+        'lblMessage
+        '
+        Me.lblMessage.AutoSize = True
+        Me.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblMessage.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.lblMessage.Font = New System.Drawing.Font("Calibri", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMessage.Image = Global.CumminsInjectorsTest.My.Resources.Resources.metal_twitter_background1
+        Me.lblMessage.Location = New System.Drawing.Point(103, 0)
+        Me.lblMessage.Name = "lblMessage"
+        Me.lblMessage.Padding = New System.Windows.Forms.Padding(0, 25, 0, 0)
+        Me.lblMessage.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblMessage.Size = New System.Drawing.Size(655, 94)
+        Me.lblMessage.TabIndex = 2
+        Me.lblMessage.Text = "Inicializar Maquina"
+        '
         'TableLayoutPanel3
         '
         Me.TableLayoutPanel3.ColumnCount = 2
@@ -167,31 +192,6 @@ Partial Class frmMain
         Me.chartCurrent.Size = New System.Drawing.Size(555, 162)
         Me.chartCurrent.TabIndex = 1
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.CumminsInjectorsTest.My.Resources.Resources.cummins
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(94, 88)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'lblMessage
-        '
-        Me.lblMessage.AutoSize = True
-        Me.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblMessage.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.lblMessage.Font = New System.Drawing.Font("Calibri", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMessage.Image = Global.CumminsInjectorsTest.My.Resources.Resources.metal_twitter_background1
-        Me.lblMessage.Location = New System.Drawing.Point(103, 0)
-        Me.lblMessage.Name = "lblMessage"
-        Me.lblMessage.Padding = New System.Windows.Forms.Padding(0, 25, 0, 0)
-        Me.lblMessage.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblMessage.Size = New System.Drawing.Size(655, 94)
-        Me.lblMessage.TabIndex = 2
-        Me.lblMessage.Text = "Inicializar Maquina"
-        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.txtPartNumber)
@@ -202,13 +202,12 @@ Partial Class frmMain
         Me.Panel1.Size = New System.Drawing.Size(194, 162)
         Me.Panel1.TabIndex = 2
         '
-        'Panel2
+        'txtPartNumber
         '
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(3, 171)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(194, 162)
-        Me.Panel2.TabIndex = 3
+        Me.txtPartNumber.Location = New System.Drawing.Point(10, 20)
+        Me.txtPartNumber.Name = "txtPartNumber"
+        Me.txtPartNumber.Size = New System.Drawing.Size(108, 20)
+        Me.txtPartNumber.TabIndex = 1
         '
         'lblPartNumber
         '
@@ -219,12 +218,13 @@ Partial Class frmMain
         Me.lblPartNumber.TabIndex = 0
         Me.lblPartNumber.Text = "Numero de Parte"
         '
-        'txtPartNumber
+        'Panel2
         '
-        Me.txtPartNumber.Location = New System.Drawing.Point(10, 20)
-        Me.txtPartNumber.Name = "txtPartNumber"
-        Me.txtPartNumber.Size = New System.Drawing.Size(108, 20)
-        Me.txtPartNumber.TabIndex = 1
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(3, 171)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(194, 162)
+        Me.Panel2.TabIndex = 3
         '
         'frmMain
         '
@@ -239,8 +239,8 @@ Partial Class frmMain
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        Me.TableLayoutPanel3.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel3.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)

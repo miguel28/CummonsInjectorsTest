@@ -43,7 +43,7 @@ Public Class StateMachine
             pwrSrc = New QuadTechPwSrc42000(config.PowerSourceComPortName, config.PowerSourceComPortBaud)
         End If
 
-        analogIn.SetScale(config.CHNDistance,config.DistanceScale)
+        analogIn.SetScale(config.CHNDistance, config.DistanceScale)
 
         instance = Me
     End Sub

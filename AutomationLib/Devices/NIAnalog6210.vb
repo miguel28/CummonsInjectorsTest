@@ -70,5 +70,6 @@ Public Class NIAnalog6210
 
         'analogInTask.Stop()
         'analogInTask.Dispose()
+        
     End Sub
 End Class
