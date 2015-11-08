@@ -16,3 +16,5 @@ C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\Cummins
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\CumminsInjectorsTest\obj\Debug\CumminsInjectorsTest.pdb
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\CumminsInjectorsTest\bin\Debug\NationalInstruments.DAQmx.dll
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\CumminsInjectorsTest\bin\Debug\NationalInstruments.Common.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\CumminsInjectorsTest\bin\Debug\NIDAQmxWrapper.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\CumminsInjectorsTest\bin\Debug\NIDAQmxWrapper.pdb

@@ -20,7 +20,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>AutomationLib.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <RemoveIntegerChecks>true</RemoveIntegerChecks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Devices\Digital.vb" />
     <Compile Include="Devices\ErrorDefs.vb" />
+    <Compile Include="Devices\NIAnalog6210Nat.vb" />
     <Compile Include="Virtual Devices\frmIOEmulator.Designer.vb">
       <DependentUpon>frmIOEmulator.vb</DependentUpon>
     </Compile>
@@ -131,6 +132,12 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NIDAQmxWrapper\NIDAQmxWrapper.csproj">
+      <Project>{d12c849e-41d0-429b-8d65-ce38afae57ae}</Project>
+      <Name>NIDAQmxWrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
