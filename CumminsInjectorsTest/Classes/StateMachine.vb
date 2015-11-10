@@ -17,6 +17,8 @@ Public Class StateMachine
     Public ReferenceDistance As Double
     Private measure As Boolean
 
+    Private distanceStack As ValuesStack
+    Private currentStack As ValuesStack
 
 
     Private Shared instance As StateMachine
@@ -160,6 +162,9 @@ Public Class StateMachine
                     ' Sets up Power Source
                     pwrSrc.SetOnline(True)
 
+                    distanceStack = New ValuesStack(1024)
+                    currentStack = New ValuesStack(1024)
+
                     MStep = 7
                 End If
 
@@ -170,6 +175,9 @@ Public Class StateMachine
                     window.SetMessage("Midiendo, Para terminar la medicion vuelva a presionar el boton")
                     window.AddValueDistanceGragph(distanceMeter.ReadValue(config.DISTChannel))
                     window.AddValueCurrentGragph(analogIn.GetAnalogIn(config.CHNCurrent))
+
+                    distanceStack.Push(distanceMeter.ReadValue(config.DISTChannel))
+                    currentStack.Push(analogIn.GetAnalogIn(config.CHNCurrent))
                 End If
 
                 If ioPort.GetInput(config.INAntiTieDown) = True And measure = False Then

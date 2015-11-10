@@ -4,34 +4,33 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4706354D-865D-4323-8B97-EC6BB5ED5633}</ProjectGuid>
+    <ProjectGuid>{86A47207-E0B0-4B0C-A5C1-B113A8017C48}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>CumminsInjectorsTest.My.MyApplication</StartupObject>
-    <RootNamespace>CumminsInjectorsTest</RootNamespace>
-    <AssemblyName>CumminsInjectorsTest</AssemblyName>
+    <StartupObject>KeyenceLKGTest.My.MyApplication</StartupObject>
+    <RootNamespace>KeyenceLKGTest</RootNamespace>
+    <AssemblyName>KeyenceLKGTest</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>CumminsInjectorsTest.xml</DocumentationFile>
+    <DocumentationFile>KeyenceLKGTest.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <RemoveIntegerChecks>true</RemoveIntegerChecks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>CumminsInjectorsTest.xml</DocumentationFile>
+    <DocumentationFile>KeyenceLKGTest.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -46,16 +45,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Resources\cummins.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="HMIControls">
       <HintPath>..\..\..\..\..\Desktop\Net Libraries\HMIControls\bin\Release\HMIControls.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\Net Libraries\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -80,13 +72,11 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ConfigReader.vb" />
-    <Compile Include="Classes\ValuesStack.vb" />
-    <Compile Include="frmMain.vb">
+    <Compile Include="frmDistanceTest.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.vb">
-      <DependentUpon>frmMain.vb</DependentUpon>
+    <Compile Include="frmDistanceTest.Designer.vb">
+      <DependentUpon>frmDistanceTest.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -104,12 +94,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Classes\StateMachine.vb" />
-    <Compile Include="Classes\IStateMachineUpdatable.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.vb</DependentUpon>
+    <EmbeddedResource Include="frmDistanceTest.resx">
+      <DependentUpon>frmDistanceTest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -134,13 +122,6 @@
       <Project>{16957b1f-70e1-4464-87b4-1febf47312df}</Project>
       <Name>AutomationLib</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cummins.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\cummins.ico" />
-    <None Include="Resources\metal-twitter-background1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
