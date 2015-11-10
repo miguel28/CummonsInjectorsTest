@@ -15,6 +15,9 @@ Public Class StateMachine
     Public distanceMeter As IDistanceMeter
 
     Public ReferenceDistance As Double
+    Private measure As Boolean
+
+
 
     Private Shared instance As StateMachine
     Public Shared Function GetInstace() As StateMachine
@@ -68,6 +71,10 @@ Public Class StateMachine
         MStep = 0
     End Sub
 
+    Public Sub BeginMeasure(val As Boolean)
+        measure = val
+    End Sub
+
     Private Sub MachineUpdate()
         ioPort.Update()
 
@@ -75,6 +82,19 @@ Public Class StateMachine
             MStep = 1
         End If
 
+        ' Enable button if the machine is ready to measure
+        If MStep = 6 Or MStep = 7 Then
+            If measure = True Then
+                window.SetMeasureButtonEnable(measure, True, "Detener Medicion")
+            Else
+                window.SetMeasureButtonEnable(measure, True, "Empezar Medir")
+            End If
+        Else
+            window.SetMeasureButtonEnable(measure, False, "Medir")
+        End If
+
+
+        ' State Machine Logic
         Select Case MStep
             Case 0
                 window.SetMessage("Inicializando Maquina")
@@ -89,6 +109,7 @@ Public Class StateMachine
                 End If
 
             Case 2 ' Retract Piston
+                measure = False
                 ioPort.SetOutput(config.OUTRetractPiston, True)
                 ioPort.SetOutput(config.OUTExtendPiston, False)
 
@@ -120,35 +141,43 @@ Public Class StateMachine
                     MStep = 2
                 End If
 
-            Case 5 ' Measuring Reference Distance
-                window.SetMessage("Tomando Medicion")
-                Application.DoEvents()
-
-                ' Sets up Power Source
-                pwrSrc.SetOnline(True)
-                pwrSrc.SetVoltage(24.0)
-                pwrSrc.SetCurrent(50.0)
-                pwrSrc.SetCurrentLimit(60.0)
-
-                System.Threading.Thread.Sleep(1000) ' Wait 1 seccond to estabilish the sample
-                ReferenceDistance = distanceMeter.ReadValue(config.DISTChannel)
-                window.SetDistanceReference(ReferenceDistance)
+            Case 5
                 window.SetMessage("Suelte Botones, para comenzar la medicion")
-                MStep = 6
+                If ioPort.GetInput(config.INAntiTieDown) = False Then
+                    window.SetMessage("Listo para medicion")
+                    MStep = 6
+                End If
 
             Case 6 ' Begin Measure
-                If ioPort.GetInput(config.INAntiTieDown) = False Then
+                If measure = True Then
+                    window.SetMessage("Tomando Medicion de referencia")
+                    Application.DoEvents()
+
+                    System.Threading.Thread.Sleep(500) ' Wait 1/2 seccond to estabilish the sample
+                    ReferenceDistance = distanceMeter.ReadValue(config.DISTChannel)
+                    window.SetDistanceReference(ReferenceDistance)
+
+                    ' Sets up Power Source
+                    pwrSrc.SetOnline(True)
+
                     MStep = 7
                 End If
 
             Case 7 ' Measuring
-                window.SetMessage("Midiendo, Para terminar la medicion vuelva a presionar los botones")
-                window.AddValueDistanceGragph(distanceMeter.ReadValue(config.DISTChannel))
-                window.AddValueCurrentGragph(analogIn.GetAnalogIn(config.CHNCurrent))
+                distanceMeter.Update(config.DISTChannel)
 
-                If ioPort.GetInput(config.INAntiTieDown) = True Then
+                If measure = True Then
+                    window.SetMessage("Midiendo, Para terminar la medicion vuelva a presionar el boton")
+                    window.AddValueDistanceGragph(distanceMeter.ReadValue(config.DISTChannel))
+                    window.AddValueCurrentGragph(analogIn.GetAnalogIn(config.CHNCurrent))
+                End If
+
+                If ioPort.GetInput(config.INAntiTieDown) = True And measure = False Then
                     ioPort.SetOutput(config.OUTRetractPiston, True)
                     ioPort.SetOutput(config.OUTExtendPiston, False)
+
+                    pwrSrc.SetOnline(False)
+
                     MStep = 8
                 End If
 

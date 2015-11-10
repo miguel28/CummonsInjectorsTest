@@ -1,7 +1,6 @@
 ﻿Imports AutomationLib
 Public Class frmMain
     Implements IStateMachineUpdatable
-
     Private sMachine As StateMachine
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -28,5 +27,23 @@ Public Class frmMain
 
     Public Sub SetDistanceReference(value As Double) Implements IStateMachineUpdatable.SetDistanceReference
         chartDistance.ChartStyle.TargetValue = value
+    End Sub
+
+    Private Sub btnBeginMeasure_Click(sender As Object, e As EventArgs) Handles btnBeginMeasure.Click
+        Dim val As Boolean = CType(btnBeginMeasure.Tag, Boolean)
+
+        If val = True Then
+            sMachine.BeginMeasure(False)
+        Else
+            sMachine.BeginMeasure(True)
+        End If
+
+    End Sub
+
+    Public Sub SetMeasureButtonEnable(value As Boolean, en As Boolean, text As String) Implements IStateMachineUpdatable.SetMeasureButtonEnable
+        btnBeginMeasure.Enabled = en
+        btnBeginMeasure.Text = text
+
+        btnBeginMeasure.Tag = value
     End Sub
 End Class

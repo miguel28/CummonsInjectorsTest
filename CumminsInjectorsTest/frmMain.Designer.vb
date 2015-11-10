@@ -40,6 +40,7 @@ Partial Class frmMain
         Me.txtPartNumber = New System.Windows.Forms.TextBox()
         Me.lblPartNumber = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnBeginMeasure = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -194,6 +195,7 @@ Partial Class frmMain
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.btnBeginMeasure)
         Me.Panel1.Controls.Add(Me.txtPartNumber)
         Me.Panel1.Controls.Add(Me.lblPartNumber)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -226,6 +228,16 @@ Partial Class frmMain
         Me.Panel2.Size = New System.Drawing.Size(194, 162)
         Me.Panel2.TabIndex = 3
         '
+        'btnBeginMeasure
+        '
+        Me.btnBeginMeasure.Enabled = False
+        Me.btnBeginMeasure.Location = New System.Drawing.Point(10, 46)
+        Me.btnBeginMeasure.Name = "btnBeginMeasure"
+        Me.btnBeginMeasure.Size = New System.Drawing.Size(108, 44)
+        Me.btnBeginMeasure.TabIndex = 2
+        Me.btnBeginMeasure.Text = "Empezar a Medir"
+        Me.btnBeginMeasure.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -257,5 +269,6 @@ Partial Class frmMain
     Friend WithEvents txtPartNumber As System.Windows.Forms.TextBox
     Friend WithEvents lblPartNumber As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents btnBeginMeasure As System.Windows.Forms.Button
 
 End Class
