@@ -38,10 +38,15 @@ Partial Class frmIOEmulator
         Me.lblActualVol = New System.Windows.Forms.Label()
         Me.grpIO = New System.Windows.Forms.GroupBox()
         Me.grpAnalogChannels = New System.Windows.Forms.GroupBox()
+        Me.grpDistance = New System.Windows.Forms.GroupBox()
+        Me.lblDistanceVal = New System.Windows.Forms.Label()
+        Me.trbDistance = New System.Windows.Forms.TrackBar()
         CType(Me.trbVoltage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.trbCurrent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpPowerSrc.SuspendLayout()
         Me.grpIO.SuspendLayout()
+        Me.grpDistance.SuspendLayout()
+        CType(Me.trbDistance, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblInputs
@@ -179,16 +184,45 @@ Partial Class frmIOEmulator
         '
         Me.grpAnalogChannels.Location = New System.Drawing.Point(16, 388)
         Me.grpAnalogChannels.Name = "grpAnalogChannels"
-        Me.grpAnalogChannels.Size = New System.Drawing.Size(402, 220)
+        Me.grpAnalogChannels.Size = New System.Drawing.Size(402, 148)
         Me.grpAnalogChannels.TabIndex = 11
         Me.grpAnalogChannels.TabStop = False
         Me.grpAnalogChannels.Text = "Analog"
+        '
+        'grpDistance
+        '
+        Me.grpDistance.Controls.Add(Me.lblDistanceVal)
+        Me.grpDistance.Controls.Add(Me.trbDistance)
+        Me.grpDistance.Location = New System.Drawing.Point(16, 542)
+        Me.grpDistance.Name = "grpDistance"
+        Me.grpDistance.Size = New System.Drawing.Size(402, 69)
+        Me.grpDistance.TabIndex = 12
+        Me.grpDistance.TabStop = False
+        Me.grpDistance.Text = "Distance"
+        '
+        'lblDistanceVal
+        '
+        Me.lblDistanceVal.AutoSize = True
+        Me.lblDistanceVal.Location = New System.Drawing.Point(342, 19)
+        Me.lblDistanceVal.Name = "lblDistanceVal"
+        Me.lblDistanceVal.Size = New System.Drawing.Size(28, 13)
+        Me.lblDistanceVal.TabIndex = 1
+        Me.lblDistanceVal.Text = "0.00"
+        '
+        'trbDistance
+        '
+        Me.trbDistance.Location = New System.Drawing.Point(9, 19)
+        Me.trbDistance.Maximum = 5000
+        Me.trbDistance.Name = "trbDistance"
+        Me.trbDistance.Size = New System.Drawing.Size(327, 45)
+        Me.trbDistance.TabIndex = 0
         '
         'frmIOEmulator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(431, 623)
+        Me.Controls.Add(Me.grpDistance)
         Me.Controls.Add(Me.grpAnalogChannels)
         Me.Controls.Add(Me.grpIO)
         Me.Controls.Add(Me.grpPowerSrc)
@@ -202,6 +236,9 @@ Partial Class frmIOEmulator
         Me.grpPowerSrc.PerformLayout()
         Me.grpIO.ResumeLayout(False)
         Me.grpIO.PerformLayout()
+        Me.grpDistance.ResumeLayout(False)
+        Me.grpDistance.PerformLayout()
+        CType(Me.trbDistance, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -220,4 +257,7 @@ Partial Class frmIOEmulator
     Friend WithEvents grpAnalogChannels As System.Windows.Forms.GroupBox
     Friend WithEvents lblActualCur As System.Windows.Forms.Label
     Friend WithEvents lblActualVol As System.Windows.Forms.Label
+    Friend WithEvents grpDistance As System.Windows.Forms.GroupBox
+    Friend WithEvents lblDistanceVal As System.Windows.Forms.Label
+    Friend WithEvents trbDistance As System.Windows.Forms.TrackBar
 End Class

@@ -51,10 +51,11 @@
     </Reference>
     <Reference Include="NationalInstruments.Common, Version=15.0.40.49154, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\Automatizacion\NI\Libs\NationalInstruments.Common\NationalInstruments.Common\X86\9.0.35.362\NationalInstruments.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\Automatizacion\Dispositivos\NI\Libs\NationalInstruments.Common\NationalInstruments.Common\X86\9.0.35.362\NationalInstruments.Common.dll</HintPath>
     </Reference>
-    <Reference Include="NationalInstruments.DAQmx">
-      <HintPath>..\..\..\..\..\Desktop\Automatizacion\NI\Libs\NationalInstruments.DAQmx\NationalInstruments.DAQmx\X64\9.2.35.82\NationalInstruments.DAQmx.dll</HintPath>
+    <Reference Include="NationalInstruments.DAQmx, Version=9.2.35.82, Culture=neutral, PublicKeyToken=18cbae0f9955702a, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Automatizacion\Dispositivos\NI\Libs\NationalInstruments.DAQmx\NationalInstruments.DAQmx\X86\9.2.35.82\NationalInstruments.DAQmx.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -78,7 +79,10 @@
   <ItemGroup>
     <Compile Include="Devices\Digital.vb" />
     <Compile Include="Devices\ErrorDefs.vb" />
+    <Compile Include="Devices\LK_G_Distance.vb" />
     <Compile Include="Devices\NIAnalog6210Nat.vb" />
+    <Compile Include="Interfaces\CurrentProf.vb" />
+    <Compile Include="Interfaces\IDistanceMeter.vb" />
     <Compile Include="Virtual Devices\frmIOEmulator.Designer.vb">
       <DependentUpon>frmIOEmulator.vb</DependentUpon>
     </Compile>
@@ -89,6 +93,7 @@
     <Compile Include="Devices\NIAnalog6210.vb" />
     <Compile Include="Devices\QuadTechPwSrc42000.vb" />
     <Compile Include="Virtual Devices\VirtualAnalogIn.vb" />
+    <Compile Include="Virtual Devices\VirtualDistanceMeter.vb" />
     <Compile Include="Virtual Devices\VirtualIO.vb" />
     <Compile Include="Virtual Devices\VirtualPowSrc.vb" />
     <Compile Include="Interfaces\AnalogChannel.vb" />

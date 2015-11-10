@@ -6,4 +6,7 @@
 
     Function GetVoltage() As Double
     Function GetCurrent() As Double
+
+    Sub SetValues(values() As CurrentProf)
+
 End Interface

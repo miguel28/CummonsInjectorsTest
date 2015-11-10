@@ -19,6 +19,8 @@ Public Class frmIOEmulator
 
     Public AnalogChannels(4) As AnalogChannel
 
+    Public Distance As Double
+
     Public Shared Function GetInstance() As frmIOEmulator
         GetInstance = instance
     End Function
@@ -54,7 +56,7 @@ Public Class frmIOEmulator
 
     Private Sub CreateAnalogIns()
         Dim i As Integer
-        For i = 0 To 3
+        For i = 0 To 2
             AnalogChannels(i) = New AnalogChannel()
 
             Dim label As Label
@@ -153,5 +155,10 @@ Public Class frmIOEmulator
 
     Private Sub trbCurrent_Scroll(sender As Object, e As EventArgs) Handles trbCurrent.Scroll
         ActualCurrent = trbCurrent.Value
+    End Sub
+
+    Private Sub trbDistance_Scroll(sender As Object, e As EventArgs) Handles trbDistance.Scroll
+        Distance = trbDistance.Value / 100.0
+        lblDistanceVal.Text = Distance.ToString()
     End Sub
 End Class

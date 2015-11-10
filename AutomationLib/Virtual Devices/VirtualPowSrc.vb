@@ -28,4 +28,8 @@
     Public Sub SetVoltage(v As Double) Implements IProgPowSrc.SetVoltage
         frmIOEmulator.GetInstance().OutputVoltage = v
     End Sub
+
+    Public Sub SetValues(values() As CurrentProf) Implements IProgPowSrc.SetValues
+
+    End Sub
 End Class

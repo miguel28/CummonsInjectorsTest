@@ -12,6 +12,7 @@ Public Class StateMachine
     Public ioPort As IDiscretePort
     Public analogIn As IAnalogIn
     Public pwrSrc As IProgPowSrc
+    Public distanceMeter As IDistanceMeter
 
     Public ReferenceDistance As Double
 
@@ -26,7 +27,8 @@ Public Class StateMachine
         timer.Interval = 100
         AddHandler timer.Tick, AddressOf MachineUpdate
 
-        config = ConfigReader.LoadConfg()
+        config = New ConfigReader()
+        'config = ConfigReader.LoadConfg()
         config.SaveConfig()
 
         If config.UseEmulator = True Then
@@ -37,13 +39,15 @@ Public Class StateMachine
             ioPort = New VirtualIO()
             analogIn = New VirtualAnalogIn()
             pwrSrc = New VirtualPowSrc()
+            distanceMeter = New VirtualDistanceMeter()
         Else
             ioPort = New MCDaqUSB()
             analogIn = New NIAnalog6210()
             pwrSrc = New QuadTechPwSrc42000(config.PowerSourceComPortName, config.PowerSourceComPortBaud)
+            distanceMeter = New LK_G_Distance(config.DistanceMeterComPortName, config.DistanceMeterComPortBaud)
         End If
 
-        analogIn.SetScale(config.CHNDistance, config.DistanceScale)
+        analogIn.SetScale(config.CHNCurrent, config.CHNCurrentScale)
 
         instance = Me
     End Sub
@@ -67,11 +71,9 @@ Public Class StateMachine
     Private Sub MachineUpdate()
         ioPort.Update()
 
-
         If ioPort.GetInput(config.INPeasureSwitch) = False Then
             MStep = 1
         End If
-
 
         Select Case MStep
             Case 0
@@ -129,7 +131,7 @@ Public Class StateMachine
                 pwrSrc.SetCurrentLimit(60.0)
 
                 System.Threading.Thread.Sleep(1000) ' Wait 1 seccond to estabilish the sample
-                ReferenceDistance = analogIn.GetAnalogIn(config.CHNDistance)
+                ReferenceDistance = distanceMeter.ReadValue(config.DISTChannel)
                 window.SetDistanceReference(ReferenceDistance)
                 window.SetMessage("Suelte Botones, para comenzar la medicion")
                 MStep = 6
@@ -141,8 +143,8 @@ Public Class StateMachine
 
             Case 7 ' Measuring
                 window.SetMessage("Midiendo, Para terminar la medicion vuelva a presionar los botones")
-                window.AddValueDistanceGragph(analogIn.GetAnalogIn(config.CHNDistance))
-                window.AddValueCurrentGragph(pwrSrc.GetCurrent())
+                window.AddValueDistanceGragph(distanceMeter.ReadValue(config.DISTChannel))
+                window.AddValueCurrentGragph(analogIn.GetAnalogIn(config.CHNCurrent))
 
                 If ioPort.GetInput(config.INAntiTieDown) = True Then
                     ioPort.SetOutput(config.OUTRetractPiston, True)
