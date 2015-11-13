@@ -229,7 +229,7 @@ Partial Class frmIOEmulator
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmIOEmulator"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "frmIOEmulator"
+        Me.Text = "IOEmulator"
         CType(Me.trbVoltage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.trbCurrent, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpPowerSrc.ResumeLayout(False)

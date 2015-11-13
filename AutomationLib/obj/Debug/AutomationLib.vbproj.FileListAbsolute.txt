@@ -7,8 +7,6 @@ C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\Automat
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Debug\AutomationLib.dll
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Debug\AutomationLib.xml
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Debug\AutomationLib.pdb
-C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\bin\Debug\NationalInstruments.Common.dll
-C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\bin\Debug\NationalInstruments.DAQmx.dll
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\bin\Debug\NIDAQmxWrapper.dll
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\bin\Debug\NIDAQmxWrapper.pdb
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\AutomationLib\obj\Debug\AutomationLib.vbprojResolveAssemblyReference.cache

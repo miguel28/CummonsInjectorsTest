@@ -24,8 +24,9 @@ Public Class ConfigReader
     Public CHNCurrentScale As Double
 
     Public DISTChannel As Short
+    Public NumberSamples As Integer
 
-    Public CurrentProfiles(4) As CurrentProf
+    Public CurrentProfiles(3) As CurrentProf
 
     Public Sub New()
         ' Loads Default Configuration
@@ -48,6 +49,8 @@ Public Class ConfigReader
         CHNCurrentScale = 1 / (UShort.MaxValue / 100)
 
         DISTChannel = 0
+
+        NumberSamples = 1024
 
         CurrentProfiles(0) = New CurrentProf("30", "1.0", "1", "0.025")
         CurrentProfiles(1) = New CurrentProf("30", "2.0", "1", "0.025")

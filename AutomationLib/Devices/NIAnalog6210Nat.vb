@@ -26,9 +26,9 @@ Public Class NIAnalog6210Nat
         Dim rangeMin, rangeMax As Double
 
         rangeMin = 0
-        rangeMax = 20
+        rangeMax = 5
 
-        localDev = "dev1/ai0"
+        localDev = "Dev1/ai0"
         '"dev1/ai0", //The physical name of the channel
         analogInTask = New NIDaqTask("aiTask")
         analogInTask.CreateVoltageChannel(localDev, _
@@ -37,14 +37,14 @@ Public Class NIAnalog6210Nat
                                          rangeMin, _
                                          rangeMax, _
                                          NIDaqNative.DAQmx_Val_Volts)
-
-        analogInTask.ConfigureSampleClock("/Dev1/PFI0", _
+        '"/Dev1/PFI0"
+        analogInTask.ConfigureSampleClock("", _
                                             10000, _
                                             NIDaqNative.DAQmx_Val_Rising, _
                                             NIDaqNative.DAQmx_Val_ContSamps, _
                                             1000)
 
-        analogInTask.ConfigureDigitalEdgeTrigger("PFI0", NIDaqNative.DAQmx_Val_Rising)
+        'analogInTask.ConfigureDigitalEdgeTrigger("PFI0", NIDaqNative.DAQmx_Val_Rising)
 
         'Verify the Task
         'analogInTask.Control(TaskAction.Verify)

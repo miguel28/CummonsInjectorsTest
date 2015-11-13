@@ -36,12 +36,12 @@ namespace NIDAQmxWrapper
 
         public void CreateVoltageChannel(string devName, string referenceName, int config, double min, double max, int units)
         {
-            NIDaqNative.DAQmxBaseCreateAIVoltageChan(taskHandle, devName, referenceName, config, min, max, units, null);
+            int a = NIDaqNative.DAQmxBaseCreateAIVoltageChan(taskHandle, devName, referenceName, config, min, max, units, null);
         }
 
         public void ConfigureSampleClock(string source, double rate, int activeEdge, int sampleMode, UInt64 sampsPerChan)
         {
-            NIDaqNative.DAQmxBaseCfgSampClkTiming(taskHandle, source, rate, activeEdge, sampleMode, sampsPerChan);
+            int a = NIDaqNative.DAQmxBaseCfgSampClkTiming(taskHandle, source, rate, activeEdge, sampleMode, sampsPerChan);
         }
 
         public void ConfigureDigitalEdgeTrigger(string triggerSource, int triggerEdge)
@@ -51,11 +51,11 @@ namespace NIDAQmxWrapper
 
         public double ReadSingleSample()
         {
-            double[] values = new double[100];
+            double[] values = new double[8000];
             int values_total = 0;
             uint einternal = 0;
-            NIDaqNative.DAQmxBaseReadAnalogF64(taskHandle, 10, 0.01, NIDaqNative.DAQmx_Val_GroupByChannel,
-                    out values, 10, out values_total, out einternal);
+            int a = NIDaqNative.DAQmxBaseReadAnalogF64(taskHandle, 10, 0.10, NIDaqNative.DAQmx_Val_GroupByChannel,
+                    out values, 1000, out values_total, out einternal);
 
             if (values_total > 0)
                 return values[0];

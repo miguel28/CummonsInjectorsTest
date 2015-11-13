@@ -15,7 +15,9 @@ Public Class StateMachine
     Public distanceMeter As IDistanceMeter
 
     Public ReferenceDistance As Double
+    Public PartNumer As String
     Private measure As Boolean
+
 
     Private distanceStack As ValuesStack
     Private currentStack As ValuesStack
@@ -29,7 +31,7 @@ Public Class StateMachine
     Public Sub New()
         MStep = 0
         timer = New Timer()
-        timer.Interval = 100
+        timer.Interval = 10
         AddHandler timer.Tick, AddressOf MachineUpdate
 
         config = New ConfigReader()
@@ -80,10 +82,6 @@ Public Class StateMachine
     Private Sub MachineUpdate()
         ioPort.Update()
 
-        If ioPort.GetInput(config.INPeasureSwitch) = False Then
-            MStep = 1
-        End If
-
         ' Enable button if the machine is ready to measure
         If MStep = 6 Or MStep = 7 Then
             If measure = True Then
@@ -95,6 +93,17 @@ Public Class StateMachine
             window.SetMeasureButtonEnable(measure, False, "Medir")
         End If
 
+        If MStep = 6 Or MStep = 7 Then
+            If ioPort.GetInput(config.INPeasureSwitch) = False Then
+                pwrSrc.SetOnline(False)
+                distanceStack.Save("Piece_" + PartNumer + "_Distance.csv")
+                currentStack.Save("Piece_" + PartNumer + "_Current.csv")
+            End If
+        End If
+
+        If ioPort.GetInput(config.INPeasureSwitch) = False Then
+            MStep = 1
+        End If
 
         ' State Machine Logic
         Select Case MStep
@@ -162,8 +171,9 @@ Public Class StateMachine
                     ' Sets up Power Source
                     pwrSrc.SetOnline(True)
 
-                    distanceStack = New ValuesStack(1024)
-                    currentStack = New ValuesStack(1024)
+                    distanceStack = New ValuesStack(config.NumberSamples)
+                    currentStack = New ValuesStack(config.NumberSamples)
+                    distanceStack.SetReference(ReferenceDistance)
 
                     MStep = 7
                 End If
@@ -185,6 +195,9 @@ Public Class StateMachine
                     ioPort.SetOutput(config.OUTExtendPiston, False)
 
                     pwrSrc.SetOnline(False)
+                    
+                    distanceStack.Save("Piece_" + PartNumer + "_Distance.csv")
+                    currentStack.Save("Piece_" + PartNumer + "_Current.csv")
 
                     MStep = 8
                 End If

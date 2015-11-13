@@ -23,16 +23,18 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartLineStyle4 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle5 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle6 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle1 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle2 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle3 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.btnStart = New System.Windows.Forms.Button()
         Me.RealTimeChart1 = New HMIControls.RealTimeChart()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Timer1
         '
+        Me.Timer1.Interval = 5
         '
         'btnStart
         '
@@ -46,15 +48,15 @@ Partial Class Form1
         'RealTimeChart1
         '
         Me.RealTimeChart1.BackColor = System.Drawing.Color.Transparent
-        ChartLineStyle4.Color = System.Drawing.Color.Black
-        ChartLineStyle4.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle4.Width = 1.0!
-        Me.RealTimeChart1.ChartStyle.AverageLineStyle = ChartLineStyle4
+        ChartLineStyle1.Color = System.Drawing.Color.Black
+        ChartLineStyle1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle1.Width = 1.0!
+        Me.RealTimeChart1.ChartStyle.AverageLineStyle = ChartLineStyle1
         Me.RealTimeChart1.ChartStyle.BottomColorBackground = System.Drawing.Color.LightGreen
-        ChartLineStyle5.Color = System.Drawing.Color.Black
-        ChartLineStyle5.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle5.Width = 1.0!
-        Me.RealTimeChart1.ChartStyle.LineStyle = ChartLineStyle5
+        ChartLineStyle2.Color = System.Drawing.Color.Yellow
+        ChartLineStyle2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle2.Width = 3.0!
+        Me.RealTimeChart1.ChartStyle.LineStyle = ChartLineStyle2
         Me.RealTimeChart1.ChartStyle.MaxValue = 100
         Me.RealTimeChart1.ChartStyle.MinValue = 0
         Me.RealTimeChart1.ChartStyle.SecondTimeScale = 5
@@ -63,10 +65,10 @@ Partial Class Form1
         Me.RealTimeChart1.ChartStyle.ShowSecondScale = False
         Me.RealTimeChart1.ChartStyle.ShowTargetLine = False
         Me.RealTimeChart1.ChartStyle.TargetValue = 50
-        ChartLineStyle6.Color = System.Drawing.Color.Black
-        ChartLineStyle6.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle6.Width = 1.0!
-        Me.RealTimeChart1.ChartStyle.TargetValueLineStyle = ChartLineStyle6
+        ChartLineStyle3.Color = System.Drawing.Color.Black
+        ChartLineStyle3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle3.Width = 1.0!
+        Me.RealTimeChart1.ChartStyle.TargetValueLineStyle = ChartLineStyle3
         Me.RealTimeChart1.ChartStyle.TimeScale = CType(15UI, UInteger)
         Me.RealTimeChart1.ChartStyle.TopColorBackground = System.Drawing.Color.DarkGreen
         Me.RealTimeChart1.ChartStyle.ValueSpacing = 2
@@ -77,21 +79,33 @@ Partial Class Form1
         Me.RealTimeChart1.Size = New System.Drawing.Size(448, 277)
         Me.RealTimeChart1.TabIndex = 1
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(104, 13)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Lecture"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(473, 332)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.RealTimeChart1)
         Me.Controls.Add(Me.btnStart)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Form1"
         Me.Text = "NIDAQmx Test"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents btnStart As System.Windows.Forms.Button
     Friend WithEvents RealTimeChart1 As HMIControls.RealTimeChart
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class

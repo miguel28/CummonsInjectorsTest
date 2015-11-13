@@ -96,6 +96,12 @@ Public Class frmIOEmulator
             Else
                 PnlOutputs(i).BackColor = Color.Gray
             End If
+
+            If virtIO.GetInput(i) = True Then
+                BtnInputs(i).BackColor = Color.Green
+            Else
+                BtnInputs(i).BackColor = Color.Gray
+            End If
         Next
 
         Inputs = virtIO.Inputs
@@ -122,7 +128,6 @@ Public Class frmIOEmulator
 
         If flag = True Then
             button.BackColor = Color.Gray
-
             button.Tag = False
         Else
             button.BackColor = Color.Green

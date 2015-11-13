@@ -2,11 +2,18 @@
 Public Class frmMain
     Implements IStateMachineUpdatable
     Private sMachine As StateMachine
+    Private Shared _instance As frmMain
+
+    Public Shared Function GetInstance() As frmMain
+        GetInstance = _instance
+    End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         sMachine = New StateMachine()
         sMachine.RegisterWindow(Me)
         sMachine.StartMachine()
+
+        _instance = Me
     End Sub
 
     Public Sub UpdateMachineEvent() Implements IStateMachineUpdatable.UpdateMachineEvent
@@ -31,6 +38,7 @@ Public Class frmMain
 
     Private Sub btnBeginMeasure_Click(sender As Object, e As EventArgs) Handles btnBeginMeasure.Click
         Dim val As Boolean = CType(btnBeginMeasure.Tag, Boolean)
+        sMachine.PartNumer = txtPartNumber.Text
 
         If val = True Then
             sMachine.BeginMeasure(False)
@@ -45,5 +53,11 @@ Public Class frmMain
         btnBeginMeasure.Text = text
 
         btnBeginMeasure.Tag = value
+    End Sub
+
+    Private Sub btnMaintenance_Click(sender As Object, e As EventArgs) Handles btnMaintenance.Click
+        Dim passwin As frmPassword
+        passwin = New frmPassword()
+        passwin.ShowDialog()
     End Sub
 End Class

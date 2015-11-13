@@ -8,10 +8,10 @@ Public Class NIAnalog6210
     End Sub
 
     Public Function GetAnalogIn(channel As UShort) As Double Implements IAnalogIn.GetAnalogIn
-        'double[] data = reader.ReadMultiSample(100);
-        Dim data() As Double
-        data = reader.ReadSingleSample()
-        GetAnalogIn = data(0)
+        Dim data(,) As Double
+        'data = reader.ReadSingleSample()
+        data = reader.ReadMultiSample(1000)
+        GetAnalogIn = data(0, 0)
 
     End Function
 
@@ -33,7 +33,7 @@ Public Class NIAnalog6210
         Dim rangeMin, rangeMax As Double
 
         rangeMin = 0
-        rangeMax = 20
+        rangeMax = 5
 
         localDevs = DaqSystem.Local.GetPhysicalChannels(PhysicalChannelTypes.AI, PhysicalChannelAccess.External)
         localDev = localDevs(0)
@@ -42,20 +42,20 @@ Public Class NIAnalog6210
         analogInTask = New Task("aiTask")
         analogInTask.AIChannels.CreateVoltageChannel(localDev, _
                                                      "", _
-                                                     CType(-1, AITerminalConfiguration), _
+                                                     AITerminalConfiguration.Rse, _
                                                      rangeMin, _
                                                      rangeMax, _
                                                      AIVoltageUnits.Volts)
 
-        analogInTask.Timing.ConfigureSampleClock("/Dev1/PFI0", _
+        analogInTask.Timing.ConfigureSampleClock("", _
                                                  10000, _
                                                  SampleClockActiveEdge.Rising, _
                                                  SampleQuantityMode.ContinuousSamples, _
-                                                 1000)
+                                                 100)
 
-        Dim triggerEdge As DigitalEdgeStartTriggerEdge
-        triggerEdge = DigitalEdgeStartTriggerEdge.Rising
-        analogInTask.Triggers.StartTrigger.ConfigureDigitalEdgeTrigger("PFI0", triggerEdge)
+        'Dim triggerEdge As DigitalEdgeStartTriggerEdge
+        'triggerEdge = DigitalEdgeStartTriggerEdge.Rising
+        'analogInTask.Triggers.StartTrigger.ConfigureDigitalEdgeTrigger("", triggerEdge)
 
         'Verify the Task
         analogInTask.Control(TaskAction.Verify)
@@ -70,6 +70,5 @@ Public Class NIAnalog6210
 
         'analogInTask.Stop()
         'analogInTask.Dispose()
-        
     End Sub
 End Class
