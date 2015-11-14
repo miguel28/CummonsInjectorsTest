@@ -22,6 +22,7 @@ Public Class StateMachine
     Private distanceStack As ValuesStack
     Private currentStack As ValuesStack
 
+    Public MaintenanceMode As Boolean
 
     Private Shared instance As StateMachine
     Public Shared Function GetInstace() As StateMachine
@@ -79,8 +80,50 @@ Public Class StateMachine
         measure = val
     End Sub
 
+    Public Sub EnterMaintenanceMode(val As Boolean)
+        MaintenanceMode = val
+        If val = True Then
+            MStep = 50
+        Else
+            MStep = 0
+        End If
+    End Sub
+
+    Private Sub TakeDistanceReference()
+        Application.DoEvents()
+        System.Threading.Thread.Sleep(500) ' Wait 1/2 seccond to estabilish the sample
+        ReferenceDistance = distanceMeter.ReadValue(config.DISTChannel)
+        window.SetDistanceReference(ReferenceDistance)
+        distanceStack.SetReference(ReferenceDistance)
+    End Sub
+
+    Private Sub StartMeasure()
+        ' Sets up Power Source
+        pwrSrc.SetOnline(True)
+    End Sub
+
+    Private Sub Measuring()
+        distanceMeter.Update(config.DISTChannel)
+
+        window.AddValueDistanceGragph(distanceMeter.ReadValue(config.DISTChannel))
+        window.AddValueCurrentGragph(analogIn.GetAnalogIn(config.CHNCurrent))
+
+        distanceStack.Push(distanceMeter.ReadValue(config.DISTChannel))
+        currentStack.Push(analogIn.GetAnalogIn(config.CHNCurrent))
+    End Sub
+    Private Sub StopMeasure()
+        ' Sets up Power Source
+        pwrSrc.SetOnline(False)
+    End Sub
+
     Private Sub MachineUpdate()
         ioPort.Update()
+
+        ' if the machine is not in maintenance mode
+        If MaintenanceMode = True Then
+            MStep = 50
+            Exit Sub
+        End If
 
         ' Enable button if the machine is ready to measure
         If MStep = 6 Or MStep = 7 Then
@@ -130,7 +173,6 @@ Public Class StateMachine
                 Else
                     window.SetMessage("Retrayendo Piston")
                 End If
-                
 
             Case 3 ' When press antitie down then extend the piston
                 If ioPort.GetInput(config.INAntiTieDown) = True Then
@@ -162,40 +204,24 @@ Public Class StateMachine
             Case 6 ' Begin Measure
                 If measure = True Then
                     window.SetMessage("Tomando Medicion de referencia")
-                    Application.DoEvents()
-
-                    System.Threading.Thread.Sleep(500) ' Wait 1/2 seccond to estabilish the sample
-                    ReferenceDistance = distanceMeter.ReadValue(config.DISTChannel)
-                    window.SetDistanceReference(ReferenceDistance)
-
-                    ' Sets up Power Source
-                    pwrSrc.SetOnline(True)
 
                     distanceStack = New ValuesStack(config.NumberSamples)
                     currentStack = New ValuesStack(config.NumberSamples)
-                    distanceStack.SetReference(ReferenceDistance)
 
+                    TakeDistanceReference()
+                    StartMeasure()
+                    window.SetMessage("Midiendo, Para terminar la medicion vuelva a presionar el boton")
                     MStep = 7
                 End If
 
             Case 7 ' Measuring
-                distanceMeter.Update(config.DISTChannel)
-
-                If measure = True Then
-                    window.SetMessage("Midiendo, Para terminar la medicion vuelva a presionar el boton")
-                    window.AddValueDistanceGragph(distanceMeter.ReadValue(config.DISTChannel))
-                    window.AddValueCurrentGragph(analogIn.GetAnalogIn(config.CHNCurrent))
-
-                    distanceStack.Push(distanceMeter.ReadValue(config.DISTChannel))
-                    currentStack.Push(analogIn.GetAnalogIn(config.CHNCurrent))
-                End If
+                If measure = True Then Measuring()
 
                 If ioPort.GetInput(config.INAntiTieDown) = True And measure = False Then
                     ioPort.SetOutput(config.OUTRetractPiston, True)
                     ioPort.SetOutput(config.OUTExtendPiston, False)
 
-                    pwrSrc.SetOnline(False)
-                    
+                    StopMeasure()
                     distanceStack.Save("Piece_" + PartNumer + "_Distance.csv")
                     currentStack.Save("Piece_" + PartNumer + "_Current.csv")
 

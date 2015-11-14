@@ -9,6 +9,9 @@ Public Class frmMain
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim Image As Bitmap = Bitmap.FromFile("metal.jpg")
+        TableLayoutPanel1.BackgroundImage = Image
+
         sMachine = New StateMachine()
         sMachine.RegisterWindow(Me)
         sMachine.StartMachine()
@@ -53,6 +56,8 @@ Public Class frmMain
         btnBeginMeasure.Text = text
 
         btnBeginMeasure.Tag = value
+
+        btnMaintenance.Enabled = Not en
     End Sub
 
     Private Sub btnMaintenance_Click(sender As Object, e As EventArgs) Handles btnMaintenance.Click

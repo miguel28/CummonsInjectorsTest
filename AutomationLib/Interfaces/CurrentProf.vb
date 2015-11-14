@@ -24,4 +24,9 @@
                 GetValue = ""
         End Select
     End Function
+
+    Public Function Copy() As CurrentProf
+        Dim neww As CurrentProf = New CurrentProf(Me.Voltage, Me.Current, Me.Slew, Me.Time)
+        Copy = neww
+    End Function
 End Class

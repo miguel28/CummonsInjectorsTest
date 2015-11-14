@@ -52,9 +52,9 @@ Public Class ConfigReader
 
         NumberSamples = 1024
 
-        CurrentProfiles(0) = New CurrentProf("30", "1.0", "1", "0.025")
-        CurrentProfiles(1) = New CurrentProf("30", "2.0", "1", "0.025")
-        CurrentProfiles(2) = New CurrentProf("30", "0.5", "1", "0.01")
+        CurrentProfiles(0) = New CurrentProf("30", "0.0", "1", "0.025")
+        CurrentProfiles(1) = New CurrentProf("30", "5.0", "1", "0.025")
+        CurrentProfiles(2) = New CurrentProf("30", "5.0", "1", "0.01")
         CurrentProfiles(3) = New CurrentProf("30", "0.0", "1", "0.0")
     End Sub
 

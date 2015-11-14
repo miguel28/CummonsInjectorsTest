@@ -11,6 +11,12 @@ Public Class NIAnalog6210Nat
         GetAnalogIn = analogInTask.ReadSingleSample()
     End Function
 
+    Public Function GetAnalogInMultiple(channel As UShort) As Double() Implements IAnalogIn.GetAnalogInMultiple
+        Dim data(0) As Double
+        data(0) = analogInTask.ReadSingleSample()
+        GetAnalogInMultiple = data
+    End Function
+
     Public Sub SetBias(channel As UShort, bias As Double) Implements IAnalogIn.SetBias
 
     End Sub
@@ -60,6 +66,7 @@ Public Class NIAnalog6210Nat
         'analogInTask.Stop()
         'analogInTask.Dispose()
 
-        
+
     End Sub
+
 End Class

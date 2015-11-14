@@ -22,6 +22,13 @@ Public Class ValuesStack
         values.Add(value)
     End Sub
 
+    Public Sub PushRange(vals() As Double)
+        Dim i As Integer
+        For i = 0 To vals.Length - 1
+            Push(vals(i))
+        Next
+    End Sub
+
     Public Sub Save(name As String)
         If Not Directory.Exists("TestResult") Then
             Directory.CreateDirectory("TestResult")

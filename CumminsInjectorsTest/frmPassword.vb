@@ -5,8 +5,10 @@
     End Sub
 
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
-        If txtPassword.Text <> "ADESecretPassword" Then
+        If txtPassword.Text <> "adesecretpass" Then
             frmMain.GetInstance().Hide()
+            StateMachine.GetInstace().EnterMaintenanceMode(True)
+
             Dim maintenanceWin As frmMaintenance
             maintenanceWin = New frmMaintenance()
             maintenanceWin.Show()
@@ -15,7 +17,6 @@
         Else
             MessageBox.Show("El password que ingreso es incorrecto", _
                             "Password Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
         End If
     End Sub
 
