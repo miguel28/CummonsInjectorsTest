@@ -52,7 +52,7 @@ Public Class StateMachine
             ioPort = New MCDaqUSB()
             analogIn = New NIAnalog6210()
             pwrSrc = New QuadTechPwSrc42000(config.PowerSourceComPortName, config.PowerSourceComPortBaud)
-            distanceMeter = New LK_G_Distance(config.DistanceMeterComPortName, config.DistanceMeterComPortBaud)
+            distanceMeter = New LKGKeyenceUSB()
         End If
 
         analogIn.SetScale(config.CHNCurrent, config.CHNCurrentScale)

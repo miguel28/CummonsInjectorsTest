@@ -26,58 +26,20 @@ Partial Class frmDistanceTest
         Dim ChartLineStyle1 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
         Dim ChartLineStyle2 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
         Dim ChartLineStyle3 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cboxComPort = New System.Windows.Forms.ComboBox()
         Me.btnSendADETestCommand = New System.Windows.Forms.Button()
-        Me.cboxBaud = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.RealTimeChart1 = New HMIControls.RealTimeChart()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.lblDistance = New System.Windows.Forms.Label()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 15)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(50, 13)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Com Port"
-        '
-        'cboxComPort
-        '
-        Me.cboxComPort.FormattingEnabled = True
-        Me.cboxComPort.Location = New System.Drawing.Point(73, 12)
-        Me.cboxComPort.Name = "cboxComPort"
-        Me.cboxComPort.Size = New System.Drawing.Size(121, 21)
-        Me.cboxComPort.TabIndex = 6
         '
         'btnSendADETestCommand
         '
-        Me.btnSendADETestCommand.Location = New System.Drawing.Point(209, 10)
+        Me.btnSendADETestCommand.Location = New System.Drawing.Point(12, 12)
         Me.btnSendADETestCommand.Name = "btnSendADETestCommand"
         Me.btnSendADETestCommand.Size = New System.Drawing.Size(75, 23)
         Me.btnSendADETestCommand.TabIndex = 4
-        Me.btnSendADETestCommand.Text = "Start"
+        Me.btnSendADETestCommand.Text = "Start / Stop"
         Me.btnSendADETestCommand.UseVisualStyleBackColor = True
-        '
-        'cboxBaud
-        '
-        Me.cboxBaud.FormattingEnabled = True
-        Me.cboxBaud.Items.AddRange(New Object() {"9600", "19200", "115200"})
-        Me.cboxBaud.Location = New System.Drawing.Point(73, 39)
-        Me.cboxBaud.Name = "cboxBaud"
-        Me.cboxBaud.Size = New System.Drawing.Size(121, 21)
-        Me.cboxBaud.TabIndex = 8
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 42)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 13)
-        Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Badu Rate"
         '
         'RealTimeChart1
         '
@@ -108,24 +70,32 @@ Partial Class frmDistanceTest
         Me.RealTimeChart1.ChartStyle.ValueSpacing = 2
         Me.RealTimeChart1.ChartStyle.VerticalScale = CType(10UI, UInteger)
         Me.RealTimeChart1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
-        Me.RealTimeChart1.Location = New System.Drawing.Point(12, 84)
+        Me.RealTimeChart1.Location = New System.Drawing.Point(12, 41)
         Me.RealTimeChart1.Name = "RealTimeChart1"
-        Me.RealTimeChart1.Size = New System.Drawing.Size(407, 228)
+        Me.RealTimeChart1.Size = New System.Drawing.Size(423, 271)
         Me.RealTimeChart1.TabIndex = 10
         '
         'Timer1
         '
+        Me.Timer1.Interval = 5
+        '
+        'lblDistance
+        '
+        Me.lblDistance.AutoSize = True
+        Me.lblDistance.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDistance.Location = New System.Drawing.Point(104, 11)
+        Me.lblDistance.Name = "lblDistance"
+        Me.lblDistance.Size = New System.Drawing.Size(25, 24)
+        Me.lblDistance.TabIndex = 12
+        Me.lblDistance.Text = "..."
         '
         'frmDistanceTest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(447, 324)
+        Me.Controls.Add(Me.lblDistance)
         Me.Controls.Add(Me.RealTimeChart1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.cboxBaud)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.cboxComPort)
         Me.Controls.Add(Me.btnSendADETestCommand)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmDistanceTest"
@@ -134,12 +104,9 @@ Partial Class frmDistanceTest
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents cboxComPort As System.Windows.Forms.ComboBox
     Friend WithEvents btnSendADETestCommand As System.Windows.Forms.Button
-    Friend WithEvents cboxBaud As System.Windows.Forms.ComboBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents RealTimeChart1 As HMIControls.RealTimeChart
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents lblDistance As System.Windows.Forms.Label
 
 End Class

@@ -98,23 +98,23 @@
   <ItemGroup>
     <Compile Include="Classes\ConfigReader.vb" />
     <Compile Include="Classes\ValuesStack.vb" />
-    <Compile Include="frmMain.vb">
+    <Compile Include="Forms\frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.vb">
+    <Compile Include="Forms\frmMain.Designer.vb">
       <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMaintenance.Designer.vb">
+    <Compile Include="Forms\frmMaintenance.Designer.vb">
       <DependentUpon>frmMaintenance.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmMaintenance.vb">
+    <Compile Include="Forms\frmMaintenance.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPassword.Designer.vb">
+    <Compile Include="Forms\frmPassword.Designer.vb">
       <DependentUpon>frmPassword.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPassword.vb">
+    <Compile Include="Forms\frmPassword.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -136,13 +136,13 @@
     <Compile Include="Classes\IStateMachineUpdatable.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMaintenance.resx">
+    <EmbeddedResource Include="Forms\frmMaintenance.resx">
       <DependentUpon>frmMaintenance.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPassword.resx">
+    <EmbeddedResource Include="Forms\frmPassword.resx">
       <DependentUpon>frmPassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

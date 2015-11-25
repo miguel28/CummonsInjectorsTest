@@ -31,6 +31,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>AutomationLib.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -76,7 +77,8 @@
   <ItemGroup>
     <Compile Include="Devices\Digital.vb" />
     <Compile Include="Devices\ErrorDefs.vb" />
-    <Compile Include="Devices\LK_G_Distance.vb" />
+    <Compile Include="Devices\LKGKeyenceUSB.vb" />
+    <Compile Include="Devices\LKGKeyenceSerial.vb" />
     <Compile Include="Devices\NIAnalog6210Nat.vb" />
     <Compile Include="Interfaces\CurrentProf.vb" />
     <Compile Include="Interfaces\IDistanceMeter.vb" />
@@ -136,6 +138,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KeyenceWrapper\KeyenceWrapper.csproj">
+      <Project>{c1aaac52-b7ed-47c9-9a2e-d67407e0dcf3}</Project>
+      <Name>KeyenceWrapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NIDAQmxWrapper\NIDAQmxWrapper.csproj">
       <Project>{d12c849e-41d0-429b-8d65-ce38afae57ae}</Project>
       <Name>NIDAQmxWrapper</Name>

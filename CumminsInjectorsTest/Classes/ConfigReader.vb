@@ -7,9 +7,6 @@ Public Class ConfigReader
     Public PowerSourceComPortName As String
     Public PowerSourceComPortBaud As Integer
 
-    Public DistanceMeterComPortName As String
-    Public DistanceMeterComPortBaud As Integer
-
     ' Inputs Configurations
     Public INPeasureSwitch As Short
     Public INAntiTieDown As Short
@@ -33,9 +30,6 @@ Public Class ConfigReader
         UseEmulator = True
         PowerSourceComPortName = "COM1"
         PowerSourceComPortBaud = 9600
-
-        DistanceMeterComPortName = "COM2"
-        DistanceMeterComPortBaud = 9600
 
         INPeasureSwitch = 5
         INAntiTieDown = 0
