@@ -22,49 +22,52 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartLineStyle31 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle32 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle33 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle13 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle14 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle15 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Dim ChartLineStyle34 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle35 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle36 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle16 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle17 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle18 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
         Me.chartDistance = New HMIControls.RealTimeChart()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Panel2 = New UI.Glass.Panel()
         Me.lblMessage = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.chartCurrent = New HMIControls.RealTimeChart()
+        Me.Panel3 = New UI.Glass.Panel()
         Me.btnBeginMeasure = New System.Windows.Forms.Button()
-        Me.txtPartNumber = New System.Windows.Forms.TextBox()
         Me.lblPartNumber = New System.Windows.Forms.Label()
-        Me.Panel2 = New UI.Glass.Panel()
+        Me.txtPartNumber = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New UI.Glass.Panel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnMaintenance = New System.Windows.Forms.Button()
-        Me.Panel3 = New UI.Glass.Panel()
-        Me.Panel1 = New UI.Glass.Panel()
+        Me.lblDist = New System.Windows.Forms.Label()
+        Me.lblCur = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'chartDistance
         '
         Me.chartDistance.BackColor = System.Drawing.Color.Transparent
-        ChartLineStyle31.Color = System.Drawing.Color.Black
-        ChartLineStyle31.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle31.Width = 1.0!
-        Me.chartDistance.ChartStyle.AverageLineStyle = ChartLineStyle31
+        ChartLineStyle13.Color = System.Drawing.Color.Black
+        ChartLineStyle13.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle13.Width = 1.0!
+        Me.chartDistance.ChartStyle.AverageLineStyle = ChartLineStyle13
         Me.chartDistance.ChartStyle.BottomColorBackground = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        ChartLineStyle32.Color = System.Drawing.Color.Yellow
-        ChartLineStyle32.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle32.Width = 2.0!
-        Me.chartDistance.ChartStyle.LineStyle = ChartLineStyle32
+        ChartLineStyle14.Color = System.Drawing.Color.Yellow
+        ChartLineStyle14.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle14.Width = 2.0!
+        Me.chartDistance.ChartStyle.LineStyle = ChartLineStyle14
         Me.chartDistance.ChartStyle.MaxValue = 100
         Me.chartDistance.ChartStyle.MinValue = 0
         Me.chartDistance.ChartStyle.SecondTimeScale = 5
@@ -73,10 +76,10 @@ Partial Class frmMain
         Me.chartDistance.ChartStyle.ShowSecondScale = False
         Me.chartDistance.ChartStyle.ShowTargetLine = True
         Me.chartDistance.ChartStyle.TargetValue = 50
-        ChartLineStyle33.Color = System.Drawing.Color.LightGray
-        ChartLineStyle33.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle33.Width = 2.0!
-        Me.chartDistance.ChartStyle.TargetValueLineStyle = ChartLineStyle33
+        ChartLineStyle15.Color = System.Drawing.Color.LightGray
+        ChartLineStyle15.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle15.Width = 2.0!
+        Me.chartDistance.ChartStyle.TargetValueLineStyle = ChartLineStyle15
         Me.chartDistance.ChartStyle.TimeScale = CType(30UI, UInteger)
         Me.chartDistance.ChartStyle.TopColorBackground = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.chartDistance.ChartStyle.ValueSpacing = 2
@@ -133,6 +136,20 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Transparent
+        Me.Panel2.Controls.Add(Me.lblMessage)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.GlassColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel2.Location = New System.Drawing.Point(103, 3)
+        Me.Panel2.MouseReflection = True
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Opacity = 25
+        Me.Panel2.Radius = 5.0!
+        Me.Panel2.Size = New System.Drawing.Size(741, 88)
+        Me.Panel2.TabIndex = 3
+        '
         'lblMessage
         '
         Me.lblMessage.AutoSize = True
@@ -169,15 +186,15 @@ Partial Class frmMain
         'chartCurrent
         '
         Me.chartCurrent.BackColor = System.Drawing.Color.Transparent
-        ChartLineStyle34.Color = System.Drawing.Color.Black
-        ChartLineStyle34.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle34.Width = 1.0!
-        Me.chartCurrent.ChartStyle.AverageLineStyle = ChartLineStyle34
+        ChartLineStyle16.Color = System.Drawing.Color.Black
+        ChartLineStyle16.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle16.Width = 1.0!
+        Me.chartCurrent.ChartStyle.AverageLineStyle = ChartLineStyle16
         Me.chartCurrent.ChartStyle.BottomColorBackground = System.Drawing.Color.LightGreen
-        ChartLineStyle35.Color = System.Drawing.Color.Yellow
-        ChartLineStyle35.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle35.Width = 2.0!
-        Me.chartCurrent.ChartStyle.LineStyle = ChartLineStyle35
+        ChartLineStyle17.Color = System.Drawing.Color.Yellow
+        ChartLineStyle17.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle17.Width = 2.0!
+        Me.chartCurrent.ChartStyle.LineStyle = ChartLineStyle17
         Me.chartCurrent.ChartStyle.MaxValue = 100
         Me.chartCurrent.ChartStyle.MinValue = 0
         Me.chartCurrent.ChartStyle.SecondTimeScale = 5
@@ -186,10 +203,10 @@ Partial Class frmMain
         Me.chartCurrent.ChartStyle.ShowSecondScale = False
         Me.chartCurrent.ChartStyle.ShowTargetLine = False
         Me.chartCurrent.ChartStyle.TargetValue = 50
-        ChartLineStyle36.Color = System.Drawing.Color.Black
-        ChartLineStyle36.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle36.Width = 1.0!
-        Me.chartCurrent.ChartStyle.TargetValueLineStyle = ChartLineStyle36
+        ChartLineStyle18.Color = System.Drawing.Color.Black
+        ChartLineStyle18.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle18.Width = 1.0!
+        Me.chartCurrent.ChartStyle.TargetValueLineStyle = ChartLineStyle18
         Me.chartCurrent.ChartStyle.TimeScale = CType(30UI, UInteger)
         Me.chartCurrent.ChartStyle.TopColorBackground = System.Drawing.Color.DarkGreen
         Me.chartCurrent.ChartStyle.ValueSpacing = 2
@@ -201,6 +218,22 @@ Partial Class frmMain
         Me.chartCurrent.Size = New System.Drawing.Size(641, 157)
         Me.chartCurrent.TabIndex = 1
         '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.Transparent
+        Me.Panel3.Controls.Add(Me.btnBeginMeasure)
+        Me.Panel3.Controls.Add(Me.lblPartNumber)
+        Me.Panel3.Controls.Add(Me.txtPartNumber)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.GlassColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel3.Location = New System.Drawing.Point(3, 3)
+        Me.Panel3.MouseReflection = True
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Opacity = 25
+        Me.Panel3.Radius = 5.0!
+        Me.Panel3.Size = New System.Drawing.Size(194, 157)
+        Me.Panel3.TabIndex = 3
+        '
         'btnBeginMeasure
         '
         Me.btnBeginMeasure.Enabled = False
@@ -211,14 +244,6 @@ Partial Class frmMain
         Me.btnBeginMeasure.Text = "Empezar a Medir"
         Me.btnBeginMeasure.UseVisualStyleBackColor = True
         '
-        'txtPartNumber
-        '
-        Me.txtPartNumber.Location = New System.Drawing.Point(10, 29)
-        Me.txtPartNumber.Name = "txtPartNumber"
-        Me.txtPartNumber.Size = New System.Drawing.Size(108, 20)
-        Me.txtPartNumber.TabIndex = 1
-        Me.txtPartNumber.Text = "1002345678"
-        '
         'lblPartNumber
         '
         Me.lblPartNumber.AutoSize = True
@@ -228,19 +253,28 @@ Partial Class frmMain
         Me.lblPartNumber.TabIndex = 0
         Me.lblPartNumber.Text = "Numero de Parte"
         '
-        'Panel2
+        'txtPartNumber
         '
-        Me.Panel2.BackColor = System.Drawing.Color.Transparent
-        Me.Panel2.Controls.Add(Me.lblMessage)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.GlassColor = System.Drawing.Color.WhiteSmoke
-        Me.Panel2.Location = New System.Drawing.Point(103, 3)
-        Me.Panel2.MouseReflection = True
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Opacity = 25
-        Me.Panel2.Radius = 5.0!
-        Me.Panel2.Size = New System.Drawing.Size(741, 88)
-        Me.Panel2.TabIndex = 3
+        Me.txtPartNumber.Location = New System.Drawing.Point(10, 29)
+        Me.txtPartNumber.Name = "txtPartNumber"
+        Me.txtPartNumber.Size = New System.Drawing.Size(108, 20)
+        Me.txtPartNumber.TabIndex = 1
+        Me.txtPartNumber.Text = "1002345678"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Controls.Add(Me.lblCur)
+        Me.Panel1.Controls.Add(Me.lblDist)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.GlassColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel1.Location = New System.Drawing.Point(3, 166)
+        Me.Panel1.MouseReflection = True
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Opacity = 25
+        Me.Panel1.Radius = 5.0!
+        Me.Panel1.Size = New System.Drawing.Size(194, 157)
+        Me.Panel1.TabIndex = 4
         '
         'TableLayoutPanel4
         '
@@ -268,34 +302,25 @@ Partial Class frmMain
         Me.btnMaintenance.Text = "Mantenimiento"
         Me.btnMaintenance.UseVisualStyleBackColor = True
         '
-        'Panel3
+        'lblDist
         '
-        Me.Panel3.BackColor = System.Drawing.Color.Transparent
-        Me.Panel3.Controls.Add(Me.btnBeginMeasure)
-        Me.Panel3.Controls.Add(Me.lblPartNumber)
-        Me.Panel3.Controls.Add(Me.txtPartNumber)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.GlassColor = System.Drawing.Color.WhiteSmoke
-        Me.Panel3.Location = New System.Drawing.Point(3, 3)
-        Me.Panel3.MouseReflection = True
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Opacity = 25
-        Me.Panel3.Radius = 5.0!
-        Me.Panel3.Size = New System.Drawing.Size(194, 157)
-        Me.Panel3.TabIndex = 3
+        Me.lblDist.AutoSize = True
+        Me.lblDist.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDist.Location = New System.Drawing.Point(10, 20)
+        Me.lblDist.Name = "lblDist"
+        Me.lblDist.Size = New System.Drawing.Size(20, 16)
+        Me.lblDist.TabIndex = 0
+        Me.lblDist.Text = "..."
         '
-        'Panel1
+        'lblCur
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Transparent
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.GlassColor = System.Drawing.Color.WhiteSmoke
-        Me.Panel1.Location = New System.Drawing.Point(3, 166)
-        Me.Panel1.MouseReflection = True
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Opacity = 25
-        Me.Panel1.Radius = 5.0!
-        Me.Panel1.Size = New System.Drawing.Size(194, 157)
-        Me.Panel1.TabIndex = 4
+        Me.lblCur.AutoSize = True
+        Me.lblCur.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCur.Location = New System.Drawing.Point(10, 51)
+        Me.lblCur.Name = "lblCur"
+        Me.lblCur.Size = New System.Drawing.Size(20, 16)
+        Me.lblCur.TabIndex = 1
+        Me.lblCur.Text = "..."
         '
         'frmMain
         '
@@ -312,12 +337,14 @@ Partial Class frmMain
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.TableLayoutPanel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -336,5 +363,7 @@ Partial Class frmMain
     Friend WithEvents Panel2 As UI.Glass.Panel
     Friend WithEvents Panel3 As UI.Glass.Panel
     Friend WithEvents Panel1 As UI.Glass.Panel
+    Friend WithEvents lblCur As System.Windows.Forms.Label
+    Friend WithEvents lblDist As System.Windows.Forms.Label
 
 End Class

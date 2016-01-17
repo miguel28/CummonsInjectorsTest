@@ -35,8 +35,10 @@ Public Class StateMachine
         timer.Interval = 10
         AddHandler timer.Tick, AddressOf MachineUpdate
 
-        config = New ConfigReader()
-        'config = ConfigReader.LoadConfg()
+        instance = Me
+
+        'config = New ConfigReader()
+        config = ConfigReader.LoadConfg()
         config.SaveConfig()
 
         If config.UseEmulator = True Then
@@ -50,9 +52,9 @@ Public Class StateMachine
             distanceMeter = New VirtualDistanceMeter()
         Else
             ioPort = New MCDaqUSB()
-            analogIn = New NIAnalog6210()
             pwrSrc = New QuadTechPwSrc42000(config.PowerSourceComPortName, config.PowerSourceComPortBaud)
             distanceMeter = New LKGKeyenceUSB()
+            analogIn = New NIAnalog6210()
         End If
 
         analogIn.SetScale(config.CHNCurrent, config.CHNCurrentScale)
@@ -105,11 +107,14 @@ Public Class StateMachine
     Private Sub Measuring()
         distanceMeter.Update(config.DISTChannel)
 
-        window.AddValueDistanceGragph(distanceMeter.ReadValue(config.DISTChannel))
-        window.AddValueCurrentGragph(analogIn.GetAnalogIn(config.CHNCurrent))
+        Dim dis As Double = distanceMeter.ReadValue(config.DISTChannel)
+        Dim cur As Double = analogIn.GetAnalogIn(config.CHNCurrent)
 
-        distanceStack.Push(distanceMeter.ReadValue(config.DISTChannel))
-        currentStack.Push(analogIn.GetAnalogIn(config.CHNCurrent))
+        window.AddValueDistanceGragph(dis)
+        window.AddValueCurrentGragph(cur)
+
+        distanceStack.Push(dis)
+        currentStack.Push(cur)
     End Sub
     Private Sub StopMeasure()
         ' Sets up Power Source
@@ -198,6 +203,12 @@ Public Class StateMachine
                 window.SetMessage("Suelte Botones, para comenzar la medicion")
                 If ioPort.GetInput(config.INAntiTieDown) = False Then
                     window.SetMessage("Listo para medicion")
+
+                    'configure charts
+                    analogIn.SetScale(config.CHNCurrent, config.CHNCurrentScale)
+                    configDisGraph(frmMain.GetInstance().chartDistance, config.DistanceViewMin, config.DistanceViewmax)
+                    configCurGraph(frmMain.GetInstance().chartCurrent, config.CurrentMin, config.CurrentMax)
+
                     MStep = 6
                 End If
 

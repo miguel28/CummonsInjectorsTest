@@ -2,7 +2,7 @@
 
 Public Class NIAnalog6210
     Implements IAnalogIn
-
+    Private sscale As Double
     Public Sub New()
         Initialize()
     End Sub
@@ -11,7 +11,7 @@ Public Class NIAnalog6210
         Dim data(,) As Double
         'data = reader.ReadSingleSample()
         data = reader.ReadMultiSample(1000)
-        GetAnalogIn = data(0, 0)
+        GetAnalogIn = data(0, 0) * sscale
     End Function
 
     Public Function GetAnalogInMultiple(channel As UShort) As Double() Implements IAnalogIn.GetAnalogInMultiple
@@ -27,7 +27,7 @@ Public Class NIAnalog6210
     End Sub
 
     Public Sub SetScale(channel As UShort, scale As Double) Implements IAnalogIn.SetScale
-
+        sscale = scale
     End Sub
 
     Private analogInTask As Task  'A new Task is created when the Start Button is clicked

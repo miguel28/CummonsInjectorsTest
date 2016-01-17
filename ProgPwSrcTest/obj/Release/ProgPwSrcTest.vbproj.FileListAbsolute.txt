@@ -1,0 +1,10 @@
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\bin\Release\ProgPwSrcTest.exe
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\bin\Release\ProgPwSrcTest.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\bin\Release\ProgPwSrcTest.xml
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\obj\Release\ProgPwSrcTest.vbprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\obj\Release\ProgPwSrcTest.frmPwrTest.resources
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\obj\Release\ProgPwSrcTest.Resources.resources
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\obj\Release\ProgPwSrcTest.vbproj.GenerateResource.Cache
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\obj\Release\ProgPwSrcTest.exe
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\obj\Release\ProgPwSrcTest.xml
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\ProgPwSrcTest\obj\Release\ProgPwSrcTest.pdb

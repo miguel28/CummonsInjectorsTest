@@ -5,7 +5,7 @@
     End Sub
 
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
-        If txtPassword.Text <> "adesecretpass" Then
+        If txtPassword.Text = "ade4" Then
             frmMain.GetInstance().Hide()
             StateMachine.GetInstace().EnterMaintenanceMode(True)
 

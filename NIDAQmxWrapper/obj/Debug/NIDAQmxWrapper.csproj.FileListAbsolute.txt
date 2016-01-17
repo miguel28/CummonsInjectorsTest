@@ -2,3 +2,4 @@ C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmx
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmxWrapper\bin\Debug\NIDAQmxWrapper.pdb
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmxWrapper\obj\Debug\NIDAQmxWrapper.dll
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmxWrapper\obj\Debug\NIDAQmxWrapper.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmxWrapper\obj\Debug\NIDAQmxWrapper.csprojResolveAssemblyReference.cache

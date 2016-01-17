@@ -4,3 +4,4 @@ C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\Keyence
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\KeyenceWrapper\bin\Release\KeyenceWrapper.pdb
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\KeyenceWrapper\obj\Release\KeyenceWrapper.dll
 C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\KeyenceWrapper\obj\Release\KeyenceWrapper.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\KeyenceWrapper\obj\Release\KeyenceWrapper.csprojResolveAssemblyReference.cache

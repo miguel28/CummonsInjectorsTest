@@ -19,9 +19,15 @@ Public Class ConfigReader
 
     Public CHNCurrent As Short
     Public CHNCurrentScale As Double
+    Public CurrentMin As Double
+    Public CurrentMax As Double
 
     Public DISTChannel As Short
     Public NumberSamples As Integer
+
+    Public DistanceViewScale As Double
+    Public DistanceViewMin As Double
+    Public DistanceViewmax As Double
 
     Public CurrentProfiles(3) As CurrentProf
 
@@ -40,11 +46,17 @@ Public Class ConfigReader
         OUTExtendPiston = 1
 
         CHNCurrent = 0
-        CHNCurrentScale = 1 / (UShort.MaxValue / 100)
+        CHNCurrentScale = 0.00047619047619047619
+        CurrentMin = 0.0
+        CurrentMax = 30.0
+        NumberSamples = 1024
+
+
 
         DISTChannel = 0
-
-        NumberSamples = 1024
+        DistanceViewScale = 10000.0
+        DistanceViewMin = -0.005
+        DistanceViewmax = 0.005
 
         CurrentProfiles(0) = New CurrentProf("30", "0.0", "1", "0.025")
         CurrentProfiles(1) = New CurrentProf("30", "5.0", "1", "0.025")
@@ -53,9 +65,14 @@ Public Class ConfigReader
     End Sub
 
     Public Shared Function LoadConfg() As ConfigReader
-        Dim str As String
-        str = File.ReadAllText("config.ini")
-        LoadConfg = JsonConvert.DeserializeObject(Of ConfigReader)(str)
+        If (File.Exists("config.ini")) Then
+            Dim str As String
+            str = File.ReadAllText("config.ini")
+            LoadConfg = JsonConvert.DeserializeObject(Of ConfigReader)(str)
+        Else
+            LoadConfg = New ConfigReader()
+            LoadConfg.SaveConfig()
+        End If
     End Function
 
     Public Sub SaveConfig()

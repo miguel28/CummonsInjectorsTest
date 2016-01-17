@@ -12,11 +12,11 @@ Public Class frmMain
         Dim Image As Bitmap = Bitmap.FromFile("metal.jpg")
         TableLayoutPanel1.BackgroundImage = Image
 
+        _instance = Me
+
         sMachine = New StateMachine()
         sMachine.RegisterWindow(Me)
         sMachine.StartMachine()
-
-        _instance = Me
     End Sub
 
     Public Sub UpdateMachineEvent() Implements IStateMachineUpdatable.UpdateMachineEvent
@@ -29,10 +29,12 @@ Public Class frmMain
 
     Public Sub AddValueCurrentGragph(value As Double) Implements IStateMachineUpdatable.AddValueCurrentGragph
         chartCurrent.AddValue(value)
+        lblCur.Text = "Corriente: " + value.ToString()
     End Sub
 
     Public Sub AddValueDistanceGragph(value As Double) Implements IStateMachineUpdatable.AddValueDistanceGragph
-        chartDistance.AddValue(value)
+        chartDistance.AddValue(value * StateMachine.GetInstace().config.DistanceViewScale)
+        lblDist.Text = "Distancia: " + value.ToString()
     End Sub
 
     Public Sub SetDistanceReference(value As Double) Implements IStateMachineUpdatable.SetDistanceReference

@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ConfigReader.vb" />
+    <Compile Include="Classes\modGraph.vb" />
     <Compile Include="Classes\ValuesStack.vb" />
     <Compile Include="Forms\frmMain.vb">
       <SubType>Form</SubType>

@@ -14,11 +14,16 @@ Public Class frmDistanceTest
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        distanceMeter.Update(0)
-        Dim val As Double
-        val = distanceMeter.ReadValue(0)
-        RealTimeChart1.AddValue(val)
-        lblDistance.Text = val.ToString()
+        Try
+            distanceMeter.Update(0)
+            Dim val As Double
+            val = distanceMeter.ReadValue(0)
+            RealTimeChart1.AddValue(val * (NumericUpDown1.Value))
+            lblDistance.Text = val.ToString()
+        Catch ex As Exception
+
+        End Try
+        
     End Sub
 
     'Private Sub ReadValues(sender As Object, e As EventArgs) Handles Button1.Click

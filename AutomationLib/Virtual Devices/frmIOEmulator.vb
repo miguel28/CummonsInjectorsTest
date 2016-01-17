@@ -163,7 +163,7 @@ Public Class frmIOEmulator
     End Sub
 
     Private Sub trbDistance_Scroll(sender As Object, e As EventArgs) Handles trbDistance.Scroll
-        Distance = trbDistance.Value / 100.0
+        Distance = trbDistance.Value / 100000.0
         lblDistanceVal.Text = Distance.ToString()
     End Sub
 End Class
