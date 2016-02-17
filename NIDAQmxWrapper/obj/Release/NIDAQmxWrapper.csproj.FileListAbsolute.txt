@@ -1,5 +1,0 @@
-C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmxWrapper\bin\Release\NIDAQmxWrapper.dll
-C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmxWrapper\bin\Release\NIDAQmxWrapper.pdb
-C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmxWrapper\obj\Release\NIDAQmxWrapper.dll
-C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmxWrapper\obj\Release\NIDAQmxWrapper.pdb
-C:\Users\User\Documents\Visual Studio 2013\Projects\CumminsInjectorsTest\NIDAQmxWrapper\obj\Release\NIDAQmxWrapper.csprojResolveAssemblyReference.cache

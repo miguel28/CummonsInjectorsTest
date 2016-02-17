@@ -18,7 +18,6 @@ Public Class StateMachine
     Public PartNumer As String
     Private measure As Boolean
 
-
     Private distanceStack As ValuesStack
     Private currentStack As ValuesStack
 
@@ -51,10 +50,16 @@ Public Class StateMachine
             pwrSrc = New VirtualPowSrc()
             distanceMeter = New VirtualDistanceMeter()
         Else
-            ioPort = New MCDaqUSB()
-            pwrSrc = New QuadTechPwSrc42000(config.PowerSourceComPortName, config.PowerSourceComPortBaud)
-            distanceMeter = New LKGKeyenceUSB()
-            analogIn = New NIAnalog6210()
+            Try
+                ioPort = New MCDaqUSB()
+                pwrSrc = New QuadTechPwSrc42000(config.PowerSourceComPortName, config.PowerSourceComPortBaud)
+                pwrSrc.SetValues(config.CurrentProfiles)
+                distanceMeter = New LKGKeyenceUSB()
+                analogIn = New NIAnalog6210()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error al inicializar dispositivos de la maquina", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+            
         End If
 
         analogIn.SetScale(config.CHNCurrent, config.CHNCurrentScale)
@@ -94,27 +99,44 @@ Public Class StateMachine
     Private Sub TakeDistanceReference()
         Application.DoEvents()
         System.Threading.Thread.Sleep(500) ' Wait 1/2 seccond to estabilish the sample
-        ReferenceDistance = distanceMeter.ReadValue(config.DISTChannel)
+        Dim distance As Double = distanceMeter.ReadValue(config.DISTChannel)
+        If distance > 10000 Then distance = 10000
+
+        ReferenceDistance = distance
         window.SetDistanceReference(ReferenceDistance)
         distanceStack.SetReference(ReferenceDistance)
     End Sub
 
     Private Sub StartMeasure()
         ' Sets up Power Source
-        pwrSrc.SetOnline(True)
+        Try
+            pwrSrc.SetOnline(True)
+        Catch ex As Exception
+            timer.Stop()
+            MessageBox.Show(ex.ToString(), "Error al inizializar la funte de poder", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Environment.Exit(1)
+        End Try
+
     End Sub
 
     Private Sub Measuring()
-        distanceMeter.Update(config.DISTChannel)
+        Try
+            distanceMeter.Update(config.DISTChannel)
 
-        Dim dis As Double = distanceMeter.ReadValue(config.DISTChannel)
-        Dim cur As Double = analogIn.GetAnalogIn(config.CHNCurrent)
+            Dim dis As Double = distanceMeter.ReadValue(config.DISTChannel)
+            window.AddValueDistanceGragph(dis)
+            distanceStack.Push(dis)
+        Catch ex As Exception
 
-        window.AddValueDistanceGragph(dis)
-        window.AddValueCurrentGragph(cur)
+        End Try
 
-        distanceStack.Push(dis)
-        currentStack.Push(cur)
+        Try
+            Dim cur As Double = analogIn.GetAnalogIn(config.CHNCurrent)
+            window.AddValueCurrentGragph(cur)
+            currentStack.Push(cur)
+        Catch ex As Exception
+
+        End Try
     End Sub
     Private Sub StopMeasure()
         ' Sets up Power Source
@@ -167,36 +189,46 @@ Public Class StateMachine
                     ioPort.Outputs = 0
                 End If
 
-            Case 2 ' Retract Piston
+            Case 2 ' Check if the piston is up
                 measure = False
-                ioPort.SetOutput(config.OUTRetractPiston, True)
-                ioPort.SetOutput(config.OUTExtendPiston, False)
+                window.SetMessage("Presione los botones para enviar la maquina a su posicion inicial")
+
+                If ioPort.GetInput(config.INAntiTieDown) = True Then
+                    ioPort.SetOutput(config.OUTRetractPiston, True)
+                    ioPort.SetOutput(config.OUTExtendPiston, False)
+                    window.SetMessage("Subiendo Piston")
+                Else
+                    ioPort.SetOutput(config.OUTRetractPiston, False)
+                    ioPort.SetOutput(config.OUTExtendPiston, False)
+                End If
 
                 If ioPort.GetInput(config.INPistonRetracted) = True Then
-                    window.SetMessage("Maquina Lista")
-                    MStep = 3
-                Else
-                    window.SetMessage("Retrayendo Piston")
+                    window.SetMessage("Maquina Lista, suelte los botones")
+                    If ioPort.GetInput(config.INAntiTieDown) = False Then
+                        MStep = 3
+                    End If
                 End If
 
             Case 3 ' When press antitie down then extend the piston
+                window.SetMessage("Maquina Lista, Presione los botones para iniciar la secuencia")
                 If ioPort.GetInput(config.INAntiTieDown) = True Then
                     window.SetMessage("Bajando Piston")
                     MStep = 4
                 End If
 
             Case 4
-                ioPort.SetOutput(config.OUTRetractPiston, False)
-                ioPort.SetOutput(config.OUTExtendPiston, True)
-
                 ' When the piston is fully extended the goto step 5
                 If ioPort.GetInput(config.INPistonExtended) = True Then
                     MStep = 5
                 End If
 
-                ' If is not fully extended then Retract Piston
-                If ioPort.GetInput(config.INAntiTieDown) = False Then
-                    MStep = 2
+                ' If is not fully extended then stop Piston
+                If ioPort.GetInput(config.INAntiTieDown) = True Then
+                    ioPort.SetOutput(config.OUTRetractPiston, False)
+                    ioPort.SetOutput(config.OUTExtendPiston, True)
+                Else
+                    ioPort.SetOutput(config.OUTRetractPiston, False)
+                    ioPort.SetOutput(config.OUTExtendPiston, False)
                 End If
 
             Case 5
@@ -227,6 +259,7 @@ Public Class StateMachine
 
             Case 7 ' Measuring
                 If measure = True Then Measuring()
+                ioPort.SetOutput(4, measure) ' Prende Aire para bajar embolo
 
                 If ioPort.GetInput(config.INAntiTieDown) = True And measure = False Then
                     ioPort.SetOutput(config.OUTRetractPiston, True)

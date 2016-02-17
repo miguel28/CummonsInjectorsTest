@@ -33,12 +33,22 @@ Public Class frmMain
     End Sub
 
     Public Sub AddValueDistanceGragph(value As Double) Implements IStateMachineUpdatable.AddValueDistanceGragph
-        chartDistance.AddValue(value * StateMachine.GetInstace().config.DistanceViewScale)
-        lblDist.Text = "Distancia: " + value.ToString()
+        Try
+            chartDistance.AddValue(value * StateMachine.GetInstace().config.DistanceViewScale)
+            lblDist.Text = "Distancia: " + value.ToString()
+        Catch ex As Exception
+            lblDist.Text = "Distancia: FFFFFF"
+        End Try
+        
     End Sub
 
     Public Sub SetDistanceReference(value As Double) Implements IStateMachineUpdatable.SetDistanceReference
-        chartDistance.ChartStyle.TargetValue = value
+        Try
+            chartDistance.ChartStyle.TargetValue = value
+        Catch ex As Exception
+            chartDistance.ChartStyle.TargetValue = chartDistance.ChartStyle.MinValue
+        End Try
+
     End Sub
 
     Private Sub btnBeginMeasure_Click(sender As Object, e As EventArgs) Handles btnBeginMeasure.Click

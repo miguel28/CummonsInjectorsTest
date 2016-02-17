@@ -35,10 +35,10 @@ Public Class ValuesStack
         End If
 
         Dim temp As String = ""
-        temp += "Reference=," + reference.ToString() + Chr(13)
+        temp += "Reference=," + reference.ToString() + Chr(13) & Chr(10)
 
         For Each value In values
-            temp += value.ToString() + Chr(13)
+            temp += value.ToString() + Chr(13) & Chr(10)
         Next
 
         File.WriteAllText("TestResult\" + name, temp)

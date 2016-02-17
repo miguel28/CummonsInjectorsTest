@@ -22,13 +22,13 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartLineStyle13 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle14 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle15 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle1 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle2 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle3 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Dim ChartLineStyle16 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle17 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle18 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle4 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle5 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle6 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
         Me.chartDistance = New HMIControls.RealTimeChart()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -42,10 +42,10 @@ Partial Class frmMain
         Me.lblPartNumber = New System.Windows.Forms.Label()
         Me.txtPartNumber = New System.Windows.Forms.TextBox()
         Me.Panel1 = New UI.Glass.Panel()
+        Me.lblCur = New System.Windows.Forms.Label()
+        Me.lblDist = New System.Windows.Forms.Label()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnMaintenance = New System.Windows.Forms.Button()
-        Me.lblDist = New System.Windows.Forms.Label()
-        Me.lblCur = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,15 +59,15 @@ Partial Class frmMain
         'chartDistance
         '
         Me.chartDistance.BackColor = System.Drawing.Color.Transparent
-        ChartLineStyle13.Color = System.Drawing.Color.Black
-        ChartLineStyle13.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle13.Width = 1.0!
-        Me.chartDistance.ChartStyle.AverageLineStyle = ChartLineStyle13
+        ChartLineStyle1.Color = System.Drawing.Color.Black
+        ChartLineStyle1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle1.Width = 1.0!
+        Me.chartDistance.ChartStyle.AverageLineStyle = ChartLineStyle1
         Me.chartDistance.ChartStyle.BottomColorBackground = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        ChartLineStyle14.Color = System.Drawing.Color.Yellow
-        ChartLineStyle14.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle14.Width = 2.0!
-        Me.chartDistance.ChartStyle.LineStyle = ChartLineStyle14
+        ChartLineStyle2.Color = System.Drawing.Color.Yellow
+        ChartLineStyle2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle2.Width = 2.0!
+        Me.chartDistance.ChartStyle.LineStyle = ChartLineStyle2
         Me.chartDistance.ChartStyle.MaxValue = 100
         Me.chartDistance.ChartStyle.MinValue = 0
         Me.chartDistance.ChartStyle.SecondTimeScale = 5
@@ -76,13 +76,13 @@ Partial Class frmMain
         Me.chartDistance.ChartStyle.ShowSecondScale = False
         Me.chartDistance.ChartStyle.ShowTargetLine = True
         Me.chartDistance.ChartStyle.TargetValue = 50
-        ChartLineStyle15.Color = System.Drawing.Color.LightGray
-        ChartLineStyle15.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle15.Width = 2.0!
-        Me.chartDistance.ChartStyle.TargetValueLineStyle = ChartLineStyle15
+        ChartLineStyle3.Color = System.Drawing.Color.LightGray
+        ChartLineStyle3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle3.Width = 2.0!
+        Me.chartDistance.ChartStyle.TargetValueLineStyle = ChartLineStyle3
         Me.chartDistance.ChartStyle.TimeScale = CType(30UI, UInteger)
         Me.chartDistance.ChartStyle.TopColorBackground = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.chartDistance.ChartStyle.ValueSpacing = 2
+        Me.chartDistance.ChartStyle.ValueSpacing = 6
         Me.chartDistance.ChartStyle.VerticalScale = CType(10UI, UInteger)
         Me.chartDistance.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chartDistance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
@@ -186,15 +186,15 @@ Partial Class frmMain
         'chartCurrent
         '
         Me.chartCurrent.BackColor = System.Drawing.Color.Transparent
-        ChartLineStyle16.Color = System.Drawing.Color.Black
-        ChartLineStyle16.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle16.Width = 1.0!
-        Me.chartCurrent.ChartStyle.AverageLineStyle = ChartLineStyle16
+        ChartLineStyle4.Color = System.Drawing.Color.Black
+        ChartLineStyle4.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle4.Width = 1.0!
+        Me.chartCurrent.ChartStyle.AverageLineStyle = ChartLineStyle4
         Me.chartCurrent.ChartStyle.BottomColorBackground = System.Drawing.Color.LightGreen
-        ChartLineStyle17.Color = System.Drawing.Color.Yellow
-        ChartLineStyle17.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle17.Width = 2.0!
-        Me.chartCurrent.ChartStyle.LineStyle = ChartLineStyle17
+        ChartLineStyle5.Color = System.Drawing.Color.Yellow
+        ChartLineStyle5.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle5.Width = 2.0!
+        Me.chartCurrent.ChartStyle.LineStyle = ChartLineStyle5
         Me.chartCurrent.ChartStyle.MaxValue = 100
         Me.chartCurrent.ChartStyle.MinValue = 0
         Me.chartCurrent.ChartStyle.SecondTimeScale = 5
@@ -203,13 +203,13 @@ Partial Class frmMain
         Me.chartCurrent.ChartStyle.ShowSecondScale = False
         Me.chartCurrent.ChartStyle.ShowTargetLine = False
         Me.chartCurrent.ChartStyle.TargetValue = 50
-        ChartLineStyle18.Color = System.Drawing.Color.Black
-        ChartLineStyle18.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle18.Width = 1.0!
-        Me.chartCurrent.ChartStyle.TargetValueLineStyle = ChartLineStyle18
+        ChartLineStyle6.Color = System.Drawing.Color.Black
+        ChartLineStyle6.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle6.Width = 1.0!
+        Me.chartCurrent.ChartStyle.TargetValueLineStyle = ChartLineStyle6
         Me.chartCurrent.ChartStyle.TimeScale = CType(30UI, UInteger)
         Me.chartCurrent.ChartStyle.TopColorBackground = System.Drawing.Color.DarkGreen
-        Me.chartCurrent.ChartStyle.ValueSpacing = 2
+        Me.chartCurrent.ChartStyle.ValueSpacing = 6
         Me.chartCurrent.ChartStyle.VerticalScale = CType(10UI, UInteger)
         Me.chartCurrent.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chartCurrent.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
@@ -276,6 +276,26 @@ Partial Class frmMain
         Me.Panel1.Size = New System.Drawing.Size(194, 157)
         Me.Panel1.TabIndex = 4
         '
+        'lblCur
+        '
+        Me.lblCur.AutoSize = True
+        Me.lblCur.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCur.Location = New System.Drawing.Point(10, 51)
+        Me.lblCur.Name = "lblCur"
+        Me.lblCur.Size = New System.Drawing.Size(20, 16)
+        Me.lblCur.TabIndex = 1
+        Me.lblCur.Text = "..."
+        '
+        'lblDist
+        '
+        Me.lblDist.AutoSize = True
+        Me.lblDist.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDist.Location = New System.Drawing.Point(10, 20)
+        Me.lblDist.Name = "lblDist"
+        Me.lblDist.Size = New System.Drawing.Size(20, 16)
+        Me.lblDist.TabIndex = 0
+        Me.lblDist.Text = "..."
+        '
         'TableLayoutPanel4
         '
         Me.TableLayoutPanel4.BackColor = System.Drawing.Color.Transparent
@@ -301,26 +321,6 @@ Partial Class frmMain
         Me.btnMaintenance.TabIndex = 0
         Me.btnMaintenance.Text = "Mantenimiento"
         Me.btnMaintenance.UseVisualStyleBackColor = True
-        '
-        'lblDist
-        '
-        Me.lblDist.AutoSize = True
-        Me.lblDist.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDist.Location = New System.Drawing.Point(10, 20)
-        Me.lblDist.Name = "lblDist"
-        Me.lblDist.Size = New System.Drawing.Size(20, 16)
-        Me.lblDist.TabIndex = 0
-        Me.lblDist.Text = "..."
-        '
-        'lblCur
-        '
-        Me.lblCur.AutoSize = True
-        Me.lblCur.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCur.Location = New System.Drawing.Point(10, 51)
-        Me.lblCur.Name = "lblCur"
-        Me.lblCur.Size = New System.Drawing.Size(20, 16)
-        Me.lblCur.TabIndex = 1
-        Me.lblCur.Text = "..."
         '
         'frmMain
         '

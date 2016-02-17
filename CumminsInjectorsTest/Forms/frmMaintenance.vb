@@ -145,6 +145,7 @@ Public Class frmMaintenance
     End Sub
 
     Private Sub tmrUpdateIO_Tick(sender As Object, e As EventArgs) Handles tmrUpdateIO.Tick
+        StateMachine.GetInstace().distanceMeter.Update(0)
         Dim i As Integer
         For i = 0 To 7
             If virtIO.GetInput(i) = True Then
@@ -162,10 +163,15 @@ Public Class frmMaintenance
         lblInputs.Text = "Inputs: " + Convert.ToString(virtIO.Inputs, 16)
         lblOutputs.Text = "Outputs: " + Convert.ToString(virtIO.Outputs, 16)
 
-        Dim distance As Double
-        distance = StateMachine.GetInstace().distanceMeter.ReadValue(configReader.DISTChannel)
-        chartDistance.AddValue(distance * configReader.DistanceViewScale)
-        lblDistance.Text = distance.ToString()
+        Try
+            Dim distance As Double
+            distance = StateMachine.GetInstace().distanceMeter.ReadValue(configReader.DISTChannel)
+            chartDistance.AddValue(distance * configReader.DistanceViewScale)
+            lblDistance.Text = distance.ToString()
+        Catch ex As Exception
+
+        End Try
+        
 
         If Not StateMachine.GetInstace().analogIn Is Nothing Then
             Dim current As Double = StateMachine.GetInstace().analogIn.GetAnalogIn(configReader.CHNCurrent)

@@ -8,10 +8,13 @@ Public Class NIAnalog6210
     End Sub
 
     Public Function GetAnalogIn(channel As UShort) As Double Implements IAnalogIn.GetAnalogIn
-        Dim data(,) As Double
-        'data = reader.ReadSingleSample()
-        data = reader.ReadMultiSample(1000)
-        GetAnalogIn = data(0, 0) * sscale
+
+        Dim data() As Double
+        data = reader.ReadSingleSample()
+        GetAnalogIn = data(0) * sscale
+        'Dim data(,) As Double
+        'data = reader.ReadMultiSample(1000)
+        'GetAnalogIn = data(0, 0) * sscale
     End Function
 
     Public Function GetAnalogInMultiple(channel As UShort) As Double() Implements IAnalogIn.GetAnalogInMultiple
@@ -43,7 +46,11 @@ Public Class NIAnalog6210
         rangeMax = 5
 
         localDevs = DaqSystem.Local.GetPhysicalChannels(PhysicalChannelTypes.AI, PhysicalChannelAccess.External)
-        localDev = localDevs(0)
+        If localDevs.Length = 0 Then
+            Throw New Exception("No se ha encontrado DAQ de National Instruments")
+        End If
+
+        localDev = localDevs(1)
         '"dev1/ai0", //The physical name of the channel
 
         analogInTask = New Task("aiTask")
@@ -54,11 +61,11 @@ Public Class NIAnalog6210
                                                      rangeMax, _
                                                      AIVoltageUnits.Volts)
 
-        analogInTask.Timing.ConfigureSampleClock("", _
-                                                 10000, _
-                                                 SampleClockActiveEdge.Rising, _
-                                                 SampleQuantityMode.ContinuousSamples, _
-                                                 100)
+        'analogInTask.Timing.ConfigureSampleClock("", _
+        '                                        1000, _
+        '                                        SampleClockActiveEdge.Rising, _
+        '                                        SampleQuantityMode.ContinuousSamples, _
+        '                                        100)
 
         'Dim triggerEdge As DigitalEdgeStartTriggerEdge
         'triggerEdge = DigitalEdgeStartTriggerEdge.Rising

@@ -47,7 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HMIControls">
-      <HintPath>..\..\..\..\..\Desktop\Net Libraries\HMIControls\bin\Release\HMIControls.dll</HintPath>
+      <HintPath>..\HMIControls.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

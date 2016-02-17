@@ -24,12 +24,12 @@ Partial Class frmMaintenance
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMaintenance))
-        Dim ChartLineStyle13 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle14 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle15 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle16 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle17 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
-        Dim ChartLineStyle18 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle7 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle8 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle9 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle10 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle11 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
+        Dim ChartLineStyle12 As HMIControls.ChartLineStyle = New HMIControls.ChartLineStyle()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -46,6 +46,11 @@ Partial Class frmMaintenance
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New UI.Glass.Panel()
         Me.btnTurnONPow = New System.Windows.Forms.Button()
+        Me.grpConfigPowsrc = New System.Windows.Forms.GroupBox()
+        Me.cboxBaudRate = New System.Windows.Forms.ComboBox()
+        Me.cboxComPorts = New System.Windows.Forms.ComboBox()
+        Me.lblBaud = New System.Windows.Forms.Label()
+        Me.lblCOMPort = New System.Windows.Forms.Label()
         Me.dgvCurrentProfile = New System.Windows.Forms.DataGridView()
         Me.cRecord = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cCurrent = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,29 +61,24 @@ Partial Class frmMaintenance
         Me.chartDistance = New HMIControls.RealTimeChart()
         Me.chartCurrent = New HMIControls.RealTimeChart()
         Me.Panel2 = New UI.Glass.Panel()
+        Me.btnDisScaleApply = New System.Windows.Forms.Button()
+        Me.numDisMax = New System.Windows.Forms.NumericUpDown()
+        Me.numDisMin = New System.Windows.Forms.NumericUpDown()
+        Me.lblDisMax = New System.Windows.Forms.Label()
+        Me.lblMinValue = New System.Windows.Forms.Label()
         Me.lblDistance = New System.Windows.Forms.Label()
         Me.lblGDistance = New System.Windows.Forms.Label()
         Me.Panel3 = New UI.Glass.Panel()
-        Me.lblCurrent = New System.Windows.Forms.Label()
-        Me.lblgCurrent = New System.Windows.Forms.Label()
-        Me.tmrUpdateIO = New System.Windows.Forms.Timer(Me.components)
-        Me.lblCOMPort = New System.Windows.Forms.Label()
-        Me.cboxComPorts = New System.Windows.Forms.ComboBox()
-        Me.lblBaud = New System.Windows.Forms.Label()
-        Me.grpConfigPowsrc = New System.Windows.Forms.GroupBox()
-        Me.cboxBaudRate = New System.Windows.Forms.ComboBox()
-        Me.lblMinValue = New System.Windows.Forms.Label()
-        Me.lblDisMax = New System.Windows.Forms.Label()
-        Me.numDisMin = New System.Windows.Forms.NumericUpDown()
-        Me.numDisMax = New System.Windows.Forms.NumericUpDown()
-        Me.btnDisScaleApply = New System.Windows.Forms.Button()
+        Me.btnCurrentApply = New System.Windows.Forms.Button()
+        Me.numCurMax = New System.Windows.Forms.NumericUpDown()
+        Me.numAmpPerCount = New System.Windows.Forms.NumericUpDown()
+        Me.lblAmpByCount = New System.Windows.Forms.Label()
         Me.numCurMin = New System.Windows.Forms.NumericUpDown()
         Me.lblCurrentMax = New System.Windows.Forms.Label()
         Me.lblCurrentMin = New System.Windows.Forms.Label()
-        Me.lblAmpByCount = New System.Windows.Forms.Label()
-        Me.numAmpPerCount = New System.Windows.Forms.NumericUpDown()
-        Me.numCurMax = New System.Windows.Forms.NumericUpDown()
-        Me.btnCurrentApply = New System.Windows.Forms.Button()
+        Me.lblCurrent = New System.Windows.Forms.Label()
+        Me.lblgCurrent = New System.Windows.Forms.Label()
+        Me.tmrUpdateIO = New System.Windows.Forms.Timer(Me.components)
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -89,17 +89,17 @@ Partial Class frmMaintenance
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.grpConfigPowsrc.SuspendLayout()
         CType(Me.dgvCurrentProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        Me.grpConfigPowsrc.SuspendLayout()
-        CType(Me.numDisMin, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numDisMax, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numCurMin, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numAmpPerCount, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numDisMin, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         CType(Me.numCurMax, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numAmpPerCount, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.numCurMin, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnClose
@@ -299,6 +299,54 @@ Partial Class frmMaintenance
         Me.btnTurnONPow.Text = "Encender Fuente"
         Me.btnTurnONPow.UseVisualStyleBackColor = False
         '
+        'grpConfigPowsrc
+        '
+        Me.grpConfigPowsrc.Controls.Add(Me.cboxBaudRate)
+        Me.grpConfigPowsrc.Controls.Add(Me.cboxComPorts)
+        Me.grpConfigPowsrc.Controls.Add(Me.lblBaud)
+        Me.grpConfigPowsrc.Controls.Add(Me.lblCOMPort)
+        Me.grpConfigPowsrc.Location = New System.Drawing.Point(35, 236)
+        Me.grpConfigPowsrc.Name = "grpConfigPowsrc"
+        Me.grpConfigPowsrc.Size = New System.Drawing.Size(241, 81)
+        Me.grpConfigPowsrc.TabIndex = 10
+        Me.grpConfigPowsrc.TabStop = False
+        Me.grpConfigPowsrc.Text = "Configuracion de Puerto COM"
+        '
+        'cboxBaudRate
+        '
+        Me.cboxBaudRate.FormattingEnabled = True
+        Me.cboxBaudRate.Items.AddRange(New Object() {"9600", "19200", "57600", "115200"})
+        Me.cboxBaudRate.Location = New System.Drawing.Point(98, 50)
+        Me.cboxBaudRate.Name = "cboxBaudRate"
+        Me.cboxBaudRate.Size = New System.Drawing.Size(137, 21)
+        Me.cboxBaudRate.TabIndex = 10
+        '
+        'cboxComPorts
+        '
+        Me.cboxComPorts.FormattingEnabled = True
+        Me.cboxComPorts.Location = New System.Drawing.Point(98, 19)
+        Me.cboxComPorts.Name = "cboxComPorts"
+        Me.cboxComPorts.Size = New System.Drawing.Size(137, 21)
+        Me.cboxComPorts.TabIndex = 8
+        '
+        'lblBaud
+        '
+        Me.lblBaud.AutoSize = True
+        Me.lblBaud.Location = New System.Drawing.Point(6, 50)
+        Me.lblBaud.Name = "lblBaud"
+        Me.lblBaud.Size = New System.Drawing.Size(58, 13)
+        Me.lblBaud.TabIndex = 9
+        Me.lblBaud.Text = "Baud Rate"
+        '
+        'lblCOMPort
+        '
+        Me.lblCOMPort.AutoSize = True
+        Me.lblCOMPort.Location = New System.Drawing.Point(6, 22)
+        Me.lblCOMPort.Name = "lblCOMPort"
+        Me.lblCOMPort.Size = New System.Drawing.Size(38, 13)
+        Me.lblCOMPort.TabIndex = 7
+        Me.lblCOMPort.Text = "Puerto"
+        '
         'dgvCurrentProfile
         '
         Me.dgvCurrentProfile.AllowUserToAddRows = False
@@ -370,15 +418,15 @@ Partial Class frmMaintenance
         'chartDistance
         '
         Me.chartDistance.BackColor = System.Drawing.Color.Transparent
-        ChartLineStyle13.Color = System.Drawing.Color.Black
-        ChartLineStyle13.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle13.Width = 1.0!
-        Me.chartDistance.ChartStyle.AverageLineStyle = ChartLineStyle13
+        ChartLineStyle7.Color = System.Drawing.Color.Black
+        ChartLineStyle7.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle7.Width = 1.0!
+        Me.chartDistance.ChartStyle.AverageLineStyle = ChartLineStyle7
         Me.chartDistance.ChartStyle.BottomColorBackground = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        ChartLineStyle14.Color = System.Drawing.Color.Yellow
-        ChartLineStyle14.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle14.Width = 2.0!
-        Me.chartDistance.ChartStyle.LineStyle = ChartLineStyle14
+        ChartLineStyle8.Color = System.Drawing.Color.Yellow
+        ChartLineStyle8.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle8.Width = 2.0!
+        Me.chartDistance.ChartStyle.LineStyle = ChartLineStyle8
         Me.chartDistance.ChartStyle.MaxValue = 100
         Me.chartDistance.ChartStyle.MinValue = 0
         Me.chartDistance.ChartStyle.SecondTimeScale = 5
@@ -386,14 +434,14 @@ Partial Class frmMaintenance
         Me.chartDistance.ChartStyle.ShowGrid = True
         Me.chartDistance.ChartStyle.ShowSecondScale = False
         Me.chartDistance.ChartStyle.ShowTargetLine = False
-        Me.chartDistance.ChartStyle.TargetValue = 50
-        ChartLineStyle15.Color = System.Drawing.Color.LightGray
-        ChartLineStyle15.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle15.Width = 2.0!
-        Me.chartDistance.ChartStyle.TargetValueLineStyle = ChartLineStyle15
+        Me.chartDistance.ChartStyle.TargetValue = 15
+        ChartLineStyle9.Color = System.Drawing.Color.LightGray
+        ChartLineStyle9.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle9.Width = 2.0!
+        Me.chartDistance.ChartStyle.TargetValueLineStyle = ChartLineStyle9
         Me.chartDistance.ChartStyle.TimeScale = CType(15UI, UInteger)
         Me.chartDistance.ChartStyle.TopColorBackground = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.chartDistance.ChartStyle.ValueSpacing = 2
+        Me.chartDistance.ChartStyle.ValueSpacing = 6
         Me.chartDistance.ChartStyle.VerticalScale = CType(10UI, UInteger)
         Me.chartDistance.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chartDistance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
@@ -405,15 +453,15 @@ Partial Class frmMaintenance
         'chartCurrent
         '
         Me.chartCurrent.BackColor = System.Drawing.Color.Transparent
-        ChartLineStyle16.Color = System.Drawing.Color.Black
-        ChartLineStyle16.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle16.Width = 1.0!
-        Me.chartCurrent.ChartStyle.AverageLineStyle = ChartLineStyle16
+        ChartLineStyle10.Color = System.Drawing.Color.Black
+        ChartLineStyle10.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle10.Width = 1.0!
+        Me.chartCurrent.ChartStyle.AverageLineStyle = ChartLineStyle10
         Me.chartCurrent.ChartStyle.BottomColorBackground = System.Drawing.Color.LightGreen
-        ChartLineStyle17.Color = System.Drawing.Color.Yellow
-        ChartLineStyle17.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle17.Width = 2.0!
-        Me.chartCurrent.ChartStyle.LineStyle = ChartLineStyle17
+        ChartLineStyle11.Color = System.Drawing.Color.Yellow
+        ChartLineStyle11.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle11.Width = 2.0!
+        Me.chartCurrent.ChartStyle.LineStyle = ChartLineStyle11
         Me.chartCurrent.ChartStyle.MaxValue = 100
         Me.chartCurrent.ChartStyle.MinValue = 0
         Me.chartCurrent.ChartStyle.SecondTimeScale = 5
@@ -422,13 +470,13 @@ Partial Class frmMaintenance
         Me.chartCurrent.ChartStyle.ShowSecondScale = False
         Me.chartCurrent.ChartStyle.ShowTargetLine = False
         Me.chartCurrent.ChartStyle.TargetValue = 50
-        ChartLineStyle18.Color = System.Drawing.Color.Black
-        ChartLineStyle18.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
-        ChartLineStyle18.Width = 1.0!
-        Me.chartCurrent.ChartStyle.TargetValueLineStyle = ChartLineStyle18
+        ChartLineStyle12.Color = System.Drawing.Color.Black
+        ChartLineStyle12.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid
+        ChartLineStyle12.Width = 1.0!
+        Me.chartCurrent.ChartStyle.TargetValueLineStyle = ChartLineStyle12
         Me.chartCurrent.ChartStyle.TimeScale = CType(15UI, UInteger)
         Me.chartCurrent.ChartStyle.TopColorBackground = System.Drawing.Color.DarkGreen
-        Me.chartCurrent.ChartStyle.ValueSpacing = 2
+        Me.chartCurrent.ChartStyle.ValueSpacing = 6
         Me.chartCurrent.ChartStyle.VerticalScale = CType(10UI, UInteger)
         Me.chartCurrent.Dock = System.Windows.Forms.DockStyle.Fill
         Me.chartCurrent.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
@@ -456,6 +504,57 @@ Partial Class frmMaintenance
         Me.Panel2.Radius = 5.0!
         Me.Panel2.Size = New System.Drawing.Size(405, 144)
         Me.Panel2.TabIndex = 3
+        '
+        'btnDisScaleApply
+        '
+        Me.btnDisScaleApply.Location = New System.Drawing.Point(271, 45)
+        Me.btnDisScaleApply.Name = "btnDisScaleApply"
+        Me.btnDisScaleApply.Size = New System.Drawing.Size(75, 48)
+        Me.btnDisScaleApply.TabIndex = 7
+        Me.btnDisScaleApply.Text = "Aplicar"
+        Me.btnDisScaleApply.UseVisualStyleBackColor = True
+        '
+        'numDisMax
+        '
+        Me.numDisMax.DecimalPlaces = 6
+        Me.numDisMax.Increment = New Decimal(New Integer() {1, 0, 0, 262144})
+        Me.numDisMax.Location = New System.Drawing.Point(118, 73)
+        Me.numDisMax.Maximum = New Decimal(New Integer() {10000, 0, 0, 196608})
+        Me.numDisMax.Minimum = New Decimal(New Integer() {10000, 0, 0, -2147287040})
+        Me.numDisMax.Name = "numDisMax"
+        Me.numDisMax.Size = New System.Drawing.Size(120, 20)
+        Me.numDisMax.TabIndex = 6
+        Me.numDisMax.Value = New Decimal(New Integer() {5, 0, 0, 196608})
+        '
+        'numDisMin
+        '
+        Me.numDisMin.DecimalPlaces = 6
+        Me.numDisMin.Increment = New Decimal(New Integer() {1, 0, 0, 262144})
+        Me.numDisMin.Location = New System.Drawing.Point(118, 45)
+        Me.numDisMin.Maximum = New Decimal(New Integer() {1000, 0, 0, 131072})
+        Me.numDisMin.Minimum = New Decimal(New Integer() {10000, 0, 0, -2147287040})
+        Me.numDisMin.Name = "numDisMin"
+        Me.numDisMin.Size = New System.Drawing.Size(120, 20)
+        Me.numDisMin.TabIndex = 5
+        Me.numDisMin.Value = New Decimal(New Integer() {5, 0, 0, -2147287040})
+        '
+        'lblDisMax
+        '
+        Me.lblDisMax.AutoSize = True
+        Me.lblDisMax.Location = New System.Drawing.Point(16, 73)
+        Me.lblDisMax.Name = "lblDisMax"
+        Me.lblDisMax.Size = New System.Drawing.Size(70, 13)
+        Me.lblDisMax.TabIndex = 3
+        Me.lblDisMax.Text = "Valor Maximo"
+        '
+        'lblMinValue
+        '
+        Me.lblMinValue.AutoSize = True
+        Me.lblMinValue.Location = New System.Drawing.Point(16, 45)
+        Me.lblMinValue.Name = "lblMinValue"
+        Me.lblMinValue.Size = New System.Drawing.Size(67, 13)
+        Me.lblMinValue.TabIndex = 2
+        Me.lblMinValue.Text = "Valor Minimo"
         '
         'lblDistance
         '
@@ -498,133 +597,52 @@ Partial Class frmMaintenance
         Me.Panel3.Size = New System.Drawing.Size(406, 144)
         Me.Panel3.TabIndex = 4
         '
-        'lblCurrent
+        'btnCurrentApply
         '
-        Me.lblCurrent.AutoSize = True
-        Me.lblCurrent.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrent.Location = New System.Drawing.Point(168, 12)
-        Me.lblCurrent.Name = "lblCurrent"
-        Me.lblCurrent.Size = New System.Drawing.Size(20, 16)
-        Me.lblCurrent.TabIndex = 1
-        Me.lblCurrent.Text = "..."
+        Me.btnCurrentApply.Location = New System.Drawing.Point(314, 38)
+        Me.btnCurrentApply.Name = "btnCurrentApply"
+        Me.btnCurrentApply.Size = New System.Drawing.Size(75, 48)
+        Me.btnCurrentApply.TabIndex = 8
+        Me.btnCurrentApply.Text = "Aplicar"
+        Me.btnCurrentApply.UseVisualStyleBackColor = True
         '
-        'lblgCurrent
+        'numCurMax
         '
-        Me.lblgCurrent.AutoSize = True
-        Me.lblgCurrent.Location = New System.Drawing.Point(14, 12)
-        Me.lblgCurrent.Name = "lblgCurrent"
-        Me.lblgCurrent.Size = New System.Drawing.Size(100, 13)
-        Me.lblgCurrent.TabIndex = 0
-        Me.lblgCurrent.Text = "Grafica de corriente"
+        Me.numCurMax.DecimalPlaces = 3
+        Me.numCurMax.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
+        Me.numCurMax.Location = New System.Drawing.Point(179, 71)
+        Me.numCurMax.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
+        Me.numCurMax.Name = "numCurMax"
+        Me.numCurMax.Size = New System.Drawing.Size(120, 20)
+        Me.numCurMax.TabIndex = 13
+        Me.numCurMax.Value = New Decimal(New Integer() {30, 0, 0, 0})
         '
-        'tmrUpdateIO
+        'numAmpPerCount
         '
-        Me.tmrUpdateIO.Interval = 10
+        Me.numAmpPerCount.DecimalPlaces = 6
+        Me.numAmpPerCount.Increment = New Decimal(New Integer() {1, 0, 0, 262144})
+        Me.numAmpPerCount.Location = New System.Drawing.Point(179, 102)
+        Me.numAmpPerCount.Maximum = New Decimal(New Integer() {10, 0, 0, 196608})
+        Me.numAmpPerCount.Minimum = New Decimal(New Integer() {10, 0, 0, -2147287040})
+        Me.numAmpPerCount.Name = "numAmpPerCount"
+        Me.numAmpPerCount.Size = New System.Drawing.Size(120, 20)
+        Me.numAmpPerCount.TabIndex = 12
+        Me.numAmpPerCount.Value = New Decimal(New Integer() {-2067592143, 1608041384, 258143, 1835008})
         '
-        'lblCOMPort
+        'lblAmpByCount
         '
-        Me.lblCOMPort.AutoSize = True
-        Me.lblCOMPort.Location = New System.Drawing.Point(6, 22)
-        Me.lblCOMPort.Name = "lblCOMPort"
-        Me.lblCOMPort.Size = New System.Drawing.Size(38, 13)
-        Me.lblCOMPort.TabIndex = 7
-        Me.lblCOMPort.Text = "Puerto"
-        '
-        'cboxComPorts
-        '
-        Me.cboxComPorts.FormattingEnabled = True
-        Me.cboxComPorts.Location = New System.Drawing.Point(98, 19)
-        Me.cboxComPorts.Name = "cboxComPorts"
-        Me.cboxComPorts.Size = New System.Drawing.Size(137, 21)
-        Me.cboxComPorts.TabIndex = 8
-        '
-        'lblBaud
-        '
-        Me.lblBaud.AutoSize = True
-        Me.lblBaud.Location = New System.Drawing.Point(6, 50)
-        Me.lblBaud.Name = "lblBaud"
-        Me.lblBaud.Size = New System.Drawing.Size(58, 13)
-        Me.lblBaud.TabIndex = 9
-        Me.lblBaud.Text = "Baud Rate"
-        '
-        'grpConfigPowsrc
-        '
-        Me.grpConfigPowsrc.Controls.Add(Me.cboxBaudRate)
-        Me.grpConfigPowsrc.Controls.Add(Me.cboxComPorts)
-        Me.grpConfigPowsrc.Controls.Add(Me.lblBaud)
-        Me.grpConfigPowsrc.Controls.Add(Me.lblCOMPort)
-        Me.grpConfigPowsrc.Location = New System.Drawing.Point(35, 236)
-        Me.grpConfigPowsrc.Name = "grpConfigPowsrc"
-        Me.grpConfigPowsrc.Size = New System.Drawing.Size(241, 81)
-        Me.grpConfigPowsrc.TabIndex = 10
-        Me.grpConfigPowsrc.TabStop = False
-        Me.grpConfigPowsrc.Text = "Configuracion de Puerto COM"
-        '
-        'cboxBaudRate
-        '
-        Me.cboxBaudRate.FormattingEnabled = True
-        Me.cboxBaudRate.Items.AddRange(New Object() {"9600", "19200", "57600", "115200"})
-        Me.cboxBaudRate.Location = New System.Drawing.Point(98, 50)
-        Me.cboxBaudRate.Name = "cboxBaudRate"
-        Me.cboxBaudRate.Size = New System.Drawing.Size(137, 21)
-        Me.cboxBaudRate.TabIndex = 10
-        '
-        'lblMinValue
-        '
-        Me.lblMinValue.AutoSize = True
-        Me.lblMinValue.Location = New System.Drawing.Point(16, 45)
-        Me.lblMinValue.Name = "lblMinValue"
-        Me.lblMinValue.Size = New System.Drawing.Size(67, 13)
-        Me.lblMinValue.TabIndex = 2
-        Me.lblMinValue.Text = "Valor Minimo"
-        '
-        'lblDisMax
-        '
-        Me.lblDisMax.AutoSize = True
-        Me.lblDisMax.Location = New System.Drawing.Point(16, 73)
-        Me.lblDisMax.Name = "lblDisMax"
-        Me.lblDisMax.Size = New System.Drawing.Size(70, 13)
-        Me.lblDisMax.TabIndex = 3
-        Me.lblDisMax.Text = "Valor Maximo"
-        '
-        'numDisMin
-        '
-        Me.numDisMin.DecimalPlaces = 6
-        Me.numDisMin.Increment = New Decimal(New Integer() {1, 0, 0, 262144})
-        Me.numDisMin.Location = New System.Drawing.Point(118, 45)
-        Me.numDisMin.Maximum = New Decimal(New Integer() {20, 0, 0, 196608})
-        Me.numDisMin.Minimum = New Decimal(New Integer() {20, 0, 0, -2147287040})
-        Me.numDisMin.Name = "numDisMin"
-        Me.numDisMin.Size = New System.Drawing.Size(120, 20)
-        Me.numDisMin.TabIndex = 5
-        Me.numDisMin.Value = New Decimal(New Integer() {5, 0, 0, -2147287040})
-        '
-        'numDisMax
-        '
-        Me.numDisMax.DecimalPlaces = 6
-        Me.numDisMax.Increment = New Decimal(New Integer() {1, 0, 0, 262144})
-        Me.numDisMax.Location = New System.Drawing.Point(118, 73)
-        Me.numDisMax.Maximum = New Decimal(New Integer() {20, 0, 0, 196608})
-        Me.numDisMax.Minimum = New Decimal(New Integer() {20, 0, 0, -2147287040})
-        Me.numDisMax.Name = "numDisMax"
-        Me.numDisMax.Size = New System.Drawing.Size(120, 20)
-        Me.numDisMax.TabIndex = 6
-        Me.numDisMax.Value = New Decimal(New Integer() {5, 0, 0, 196608})
-        '
-        'btnDisScaleApply
-        '
-        Me.btnDisScaleApply.Location = New System.Drawing.Point(271, 45)
-        Me.btnDisScaleApply.Name = "btnDisScaleApply"
-        Me.btnDisScaleApply.Size = New System.Drawing.Size(75, 48)
-        Me.btnDisScaleApply.TabIndex = 7
-        Me.btnDisScaleApply.Text = "Aplicar"
-        Me.btnDisScaleApply.UseVisualStyleBackColor = True
+        Me.lblAmpByCount.AutoSize = True
+        Me.lblAmpByCount.Location = New System.Drawing.Point(14, 104)
+        Me.lblAmpByCount.Name = "lblAmpByCount"
+        Me.lblAmpByCount.Size = New System.Drawing.Size(168, 13)
+        Me.lblAmpByCount.TabIndex = 11
+        Me.lblAmpByCount.Text = "Factor de Conversion de Corriente"
         '
         'numCurMin
         '
         Me.numCurMin.DecimalPlaces = 3
         Me.numCurMin.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
-        Me.numCurMin.Location = New System.Drawing.Point(127, 43)
+        Me.numCurMin.Location = New System.Drawing.Point(180, 43)
         Me.numCurMin.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.numCurMin.Name = "numCurMin"
         Me.numCurMin.Size = New System.Drawing.Size(120, 20)
@@ -648,46 +666,28 @@ Partial Class frmMaintenance
         Me.lblCurrentMin.TabIndex = 7
         Me.lblCurrentMin.Text = "Valor Minimo"
         '
-        'lblAmpByCount
+        'lblCurrent
         '
-        Me.lblAmpByCount.AutoSize = True
-        Me.lblAmpByCount.Location = New System.Drawing.Point(14, 104)
-        Me.lblAmpByCount.Name = "lblAmpByCount"
-        Me.lblAmpByCount.Size = New System.Drawing.Size(103, 13)
-        Me.lblAmpByCount.TabIndex = 11
-        Me.lblAmpByCount.Text = "Amperes Por cuenta"
+        Me.lblCurrent.AutoSize = True
+        Me.lblCurrent.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCurrent.Location = New System.Drawing.Point(168, 12)
+        Me.lblCurrent.Name = "lblCurrent"
+        Me.lblCurrent.Size = New System.Drawing.Size(20, 16)
+        Me.lblCurrent.TabIndex = 1
+        Me.lblCurrent.Text = "..."
         '
-        'numAmpPerCount
+        'lblgCurrent
         '
-        Me.numAmpPerCount.DecimalPlaces = 6
-        Me.numAmpPerCount.Increment = New Decimal(New Integer() {1, 0, 0, 262144})
-        Me.numAmpPerCount.Location = New System.Drawing.Point(126, 102)
-        Me.numAmpPerCount.Maximum = New Decimal(New Integer() {10, 0, 0, 196608})
-        Me.numAmpPerCount.Minimum = New Decimal(New Integer() {10, 0, 0, -2147287040})
-        Me.numAmpPerCount.Name = "numAmpPerCount"
-        Me.numAmpPerCount.Size = New System.Drawing.Size(120, 20)
-        Me.numAmpPerCount.TabIndex = 12
-        Me.numAmpPerCount.Value = New Decimal(New Integer() {-2067592143, 1608041384, 258143, 1835008})
+        Me.lblgCurrent.AutoSize = True
+        Me.lblgCurrent.Location = New System.Drawing.Point(14, 12)
+        Me.lblgCurrent.Name = "lblgCurrent"
+        Me.lblgCurrent.Size = New System.Drawing.Size(100, 13)
+        Me.lblgCurrent.TabIndex = 0
+        Me.lblgCurrent.Text = "Grafica de corriente"
         '
-        'numCurMax
+        'tmrUpdateIO
         '
-        Me.numCurMax.DecimalPlaces = 3
-        Me.numCurMax.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
-        Me.numCurMax.Location = New System.Drawing.Point(126, 71)
-        Me.numCurMax.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.numCurMax.Name = "numCurMax"
-        Me.numCurMax.Size = New System.Drawing.Size(120, 20)
-        Me.numCurMax.TabIndex = 13
-        Me.numCurMax.Value = New Decimal(New Integer() {30, 0, 0, 0})
-        '
-        'btnCurrentApply
-        '
-        Me.btnCurrentApply.Location = New System.Drawing.Point(271, 43)
-        Me.btnCurrentApply.Name = "btnCurrentApply"
-        Me.btnCurrentApply.Size = New System.Drawing.Size(75, 48)
-        Me.btnCurrentApply.TabIndex = 8
-        Me.btnCurrentApply.Text = "Aplicar"
-        Me.btnCurrentApply.UseVisualStyleBackColor = True
+        Me.tmrUpdateIO.Interval = 10
         '
         'frmMaintenance
         '
@@ -710,20 +710,20 @@ Partial Class frmMaintenance
         Me.TableLayoutPanel3.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.grpConfigPowsrc.ResumeLayout(False)
+        Me.grpConfigPowsrc.PerformLayout()
         CType(Me.dgvCurrentProfile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.numDisMax, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numDisMin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.grpConfigPowsrc.ResumeLayout(False)
-        Me.grpConfigPowsrc.PerformLayout()
-        CType(Me.numDisMin, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numDisMax, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numCurMin, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numAmpPerCount, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numCurMax, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numAmpPerCount, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.numCurMin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
